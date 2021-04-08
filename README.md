@@ -17,3 +17,17 @@ AlexFan Graduation Project.
 
 *Tips：开题报告、文献综述、外文翻译采用A4号纸双面打印，封面与封底采用浅蓝色封面纸（卡纸）打印。*
 
+
+
+## Phase 2
+
+1.查漏补缺相关知识点（《机器学习》——周志华，机器学习课程——吴恩达）
+
+2.复现Emotion-aware Chat Machine_Automatic 框架
+
+3.学习路径：RNN=>GRU=>Seq2seq
+
+## Phase 3
+
+1.
+
