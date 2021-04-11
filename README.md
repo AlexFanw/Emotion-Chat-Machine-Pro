@@ -1,9 +1,10 @@
-# Emotion-Chat-Machine-Pro
+# 🤖️Emotion-Chat-Machine-Pro
+
 AlexFan Graduation Project.
 
 
 
-## Phase 1
+## 📃Phase 1
 
 1.开题报告：3000字，包括课题背景/国内外现状/研究内容/研究难点/技术路线/研究计划(5个月左右的计划)，具体见附件要求。
 
@@ -19,15 +20,17 @@ AlexFan Graduation Project.
 
 
 
-## Phase 2
+## 🔧Phase 2
 
 1.查漏补缺相关知识点（《机器学习》——周志华，机器学习课程——吴恩达）
 
 2.复现Emotion-aware Chat Machine_Automatic 框架
 
-3.学习路径：RNN=>GRU=>Seq2seq
+3.提升性能，包括情感和语义相关性
 
-## Phase 3
 
-1.
+
+## ✍️Phase 3
+
+1.撰写论文
 
