@@ -42,8 +42,8 @@ tf.app.flags.DEFINE_integer("max_train_data_size", 2000000, "Limit on the size o
 tf.app.flags.DEFINE_boolean("use_fp16", False, "Train using fp16 instead of fp32.")
 
 # Directories
-tf.app.flags.DEFINE_string("data_dir", "train_data/", "Data directory")
-tf.app.flags.DEFINE_string("train_dir", "EACM/", "Training directory.")
+tf.app.flags.DEFINE_string("data_dir", "train_data", "Data directory")
+tf.app.flags.DEFINE_string("train_dir", "train_result", "Training directory.")
 tf.app.flags.DEFINE_string("pretrain_dir", "pretrain", "Pretraining directory.")
 tf.app.flags.DEFINE_integer("pretrain", 1484000, "pretrain model number")  # 1484000
 tf.app.flags.DEFINE_integer("load_model", 0, "which model to load.")
@@ -164,15 +164,15 @@ def create_model(session, forward_only, beam_search):
         #    session.run(ememory.assign(initvec_ememory))
 
         # if FLAGS.use_autoEM:
-        #    senti_embedding, grammar_embedding = data_utils.get_pretrained_embedding(FLAGS.data_dir, FLAGS.post_vocab_size)
-        #    initvec_senti = tf.constant(senti_embedding, dtype=dtype, name='initvec_senti')
-        #    initvec_grammar = tf.constant(grammar_embedding, dtype=dtype, name='initvec_grammar')
-        #    senti_tensor = [x for x in tf.trainable_variables() if
-        #                      x.name == 'classify_model_with_buckets/senti_embed:0'][0]
-        #    grammar_tensor = [x for x in tf.trainable_variables() if
-        #                          x.name == 'classify_model_with_buckets/grammar_embed:0'][0]
-        #    session.run(senti_tensor.assign(initvec_senti))
-        #    session.run(grammar_tensor.assign(initvec_grammar))
+        #     senti_embedding, grammar_embedding = data_utils.get_pretrained_embedding(FLAGS.data_dir, FLAGS.post_vocab_size)
+        #     initvec_senti = tf.constant(senti_embedding, dtype=dtype, name='initvec_senti')
+        #     initvec_grammar = tf.constant(grammar_embedding, dtype=dtype, name='initvec_grammar')
+        #     senti_tensor = [x for x in tf.trainable_variables() if
+        #                       x.name == 'classify_model_with_buckets/senti_embed:0'][0]
+        #     grammar_tensor = [x for x in tf.trainable_variables() if
+        #                           x.name == 'classify_model_with_buckets/grammar_embed:0'][0]
+        #     session.run(senti_tensor.assign(initvec_senti))
+        #     session.run(grammar_tensor.assign(initvec_grammar))
 
     return model
 

@@ -2,3 +2,12 @@
 .idea
 .vscode
 .ipynb_checkpoints
+train_data.json
+vocab20000.*
+*.tokenids
+*.mat
+ECMP/__pycache__/
+ECMP/pre_train/sgns.weibo.bigram-char
+ECMP/train_result/logs/
+ECMP/train_result/results/
+ECMP/train_result/translate.*

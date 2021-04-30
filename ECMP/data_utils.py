@@ -41,6 +41,7 @@ GO_ID = 3
 _WORD_SPLIT = re.compile(b"([.,!?\"':;)(])")
 _DIGIT_RE = re.compile(br"\d")
 
+
 def basic_tokenizer(sentence):
     """Very basic tokenizer: split the sentence into a list of tokens."""
     words = []
@@ -164,6 +165,7 @@ def prepare_data(data_dir, post_vocabulary_size, response_vocabulary_size, token
 
     return tokenids_train_path, tokenids_dev_path, tokenids_test_path, post_vocab_path, response_vocab_path
 
+
 def load_word_vector(fname):
     dic = {}
     with open(fname) as f:
@@ -175,6 +177,7 @@ def load_word_vector(fname):
             dic[word] = vector
     return dic
 
+
 def load_vocab(fname):
     vocab = []
     with open(fname, encoding='utf-8') as f:
@@ -183,8 +186,10 @@ def load_vocab(fname):
             vocab.append(d[:-1])
     return vocab
 
+
 def random_init(dim):
     return 2 * math.sqrt(3) * (np.random.rand(dim) - 0.5) / math.sqrt(dim)
+
 
 def refine_wordvec(rvector, vocab, dim=200):
     wordvec = []
@@ -204,6 +209,7 @@ def refine_wordvec(rvector, vocab, dim=200):
     array = np.array(wordvec)
     return array
 
+
 def get_word_embedding(data_dir, post_vocabulary_size, response_vocabulary_size):
     import scipy.io
     path = os.path.join(data_dir, config.get('data', 'wordvec'))
@@ -222,46 +228,46 @@ def get_word_embedding(data_dir, post_vocabulary_size, response_vocabulary_size)
         wordvec_response = refine_wordvec(raw_vector, vocab_response)
         mdict = {'post': wordvec_post, 'response': wordvec_response}
         scipy.io.savemat(path, mdict=mdict)
-            
+
     return wordvec_post, wordvec_response
 
-def get_ememory(data_dir, response_vocabulary_size):
-    eme_path = os.path.join(data_dir, config.get('data', 'ememory_vocab_file') % response_vocabulary_size)
-    vocab_response, _ = initialize_vocabulary(os.path.join(data_dir, config.get('data', 'response_vocab_file') % response_vocabulary_size))
-    dic = json.load(open(eme_path, 'r'))
-    emem = []
-    for i in range(6):
-        #if i == 0:
-        #    emem.append(np.ones(response_vocabulary_size, dtype='float32'))
-        #else:
-        vec = [0] * response_vocabulary_size
-        for j in dic[i]:
-            if j in vocab_response:
-                vec[vocab_response[j]] = 1
-        emem.append(np.array(vec, dtype='float32'))
-    emem = np.array(emem, dtype='float32')
-    return emem
+#def get_ememory(data_dir, response_vocabulary_size):
+#    eme_path = os.path.join(data_dir, config.get('data', 'ememory_vocab_file') % response_vocabulary_size)
+#    vocab_response, _ = initialize_vocabulary(os.path.join(data_dir, config.get('data', 'response_vocab_file') % response_vocabulary_size))
+#    dic = json.load(open(eme_path, 'r'))
+#    emem = []
+#    for i in range(6):
+#        #if i == 0:
+#        #    emem.append(np.ones(response_vocabulary_size, dtype='float32'))
+#        #else:
+#        vec = [0] * response_vocabulary_size
+#        for j in dic[i]:
+#            if j in vocab_response:
+#                vec[vocab_response[j]] = 1
+#        emem.append(np.array(vec, dtype='float32'))
+#    emem = np.array(emem, dtype='float32')
+#    return emem
 
-def get_pretrained_embedding(data_dir,post_vocabulary_size):
-    senti_data_dir = data_dir + "senti_embedding"
-    grammar_data_dir = data_dir + "grammar_embedding"
-    import scipy.io
-    path = data_dir + "multi_embedding.mat"
-    try:
-        mdict = scipy.io.loadmat(path)
-        refined_senti_vector = mdict['senti']
-        refined_grammar_vector = mdict['grammar']
-    except:
-        print('loading sentiment word vector...')
-        senti_vector = load_word_vector(senti_data_dir)
-        grammar_vector = load_word_vector(grammar_data_dir)
-        print('loading vocabulary...')
-        vocab_post = load_vocab(os.path.join(data_dir, config.get('data', 'post_vocab_file') % post_vocabulary_size))
-
-        print('refine word vector...')
-        refined_senti_vector = refine_wordvec(senti_vector, vocab_post)
-        refined_grammar_vector = refine_wordvec(grammar_vector, vocab_post)
-        mdict = {'senti': refined_senti_vector, 'grammar': refined_grammar_vector}
-        scipy.io.savemat(path, mdict=mdict)
-
-    return refined_senti_vector, refined_grammar_vector
+#def get_pretrained_embedding(data_dir,post_vocabulary_size):
+#    senti_data_dir = data_dir + "senti_embedding"
+#    grammar_data_dir = data_dir + "grammar_embedding"
+#    import scipy.io
+#    path = data_dir + "multi_embedding.mat"
+#    try:
+#        mdict = scipy.io.loadmat(path)
+#        refined_senti_vector = mdict['senti']
+#        refined_grammar_vector = mdict['grammar']
+#    except:
+#        print('loading sentiment word vector...')
+#        senti_vector = load_word_vector(senti_data_dir)
+#        grammar_vector = load_word_vector(grammar_data_dir)
+#        print('loading vocabulary...')
+#        vocab_post = load_vocab(os.path.join(data_dir, config.get('data', 'post_vocab_file') % post_vocabulary_size))
+#
+#        print('refine word vector...')
+#        refined_senti_vector = refine_wordvec(senti_vector, vocab_post)
+#        refined_grammar_vector = refine_wordvec(grammar_vector, vocab_post)
+#        mdict = {'senti': refined_senti_vector, 'grammar': refined_grammar_vector}
+#        scipy.io.savemat(path, mdict=mdict)
+#
+#    return refined_senti_vector, refined_grammar_vector
