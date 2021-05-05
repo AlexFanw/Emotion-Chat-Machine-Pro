@@ -3,14 +3,12 @@ from __future__ import division
 from __future__ import print_function
 
 import math
-# import nltk
 import os
-import random
 import sys
 import time
 import json
 import numpy as np
-from six.moves import range  # pylint: disable=redefined-builtin
+from six.moves import range
 import tensorflow as tf
 import data_utils
 import seq2seq_model
@@ -157,22 +155,6 @@ def create_model(session, forward_only, beam_search):
                                   x.name == 'embedding_attention_seq2seq/embedding_attention_decoder/embedding:0'][0]
             session.run(embedding_post.assign(initvec_post))
             session.run(embedding_response.assign(initvec_response))
-        # if FLAGS.use_ememory:
-        #    vec_ememory = data_utils.get_ememory(FLAGS.data_dir, FLAGS.response_vocab_size)  # 6*40000
-        #    initvec_ememory = tf.constant(vec_ememory, dtype=dtype, name='init_ememory')
-        #    ememory = [x for x in tf.all_variables() if x.name == 'embedding_attention_seq2seq/embedding_attention_decoder/external_memory:0'][0]
-        #    session.run(ememory.assign(initvec_ememory))
-
-        # if FLAGS.use_autoEM:
-        #     senti_embedding, grammar_embedding = data_utils.get_pretrained_embedding(FLAGS.data_dir, FLAGS.post_vocab_size)
-        #     initvec_senti = tf.constant(senti_embedding, dtype=dtype, name='initvec_senti')
-        #     initvec_grammar = tf.constant(grammar_embedding, dtype=dtype, name='initvec_grammar')
-        #     senti_tensor = [x for x in tf.trainable_variables() if
-        #                       x.name == 'classify_model_with_buckets/senti_embed:0'][0]
-        #     grammar_tensor = [x for x in tf.trainable_variables() if
-        #                           x.name == 'classify_model_with_buckets/grammar_embed:0'][0]
-        #     session.run(senti_tensor.assign(initvec_senti))
-        #     session.run(grammar_tensor.assign(initvec_grammar))
 
     return model
 
@@ -187,7 +169,7 @@ def train():
     with tf.Session(config=sess_config) as sess:
 
         # Create model.
-        # print("Is GPU available: ", tf.test.is_gpu_available())
+        print("Is GPU available: ", tf.test.is_gpu_available())
         print("***Creating %d layers of %d units." % (FLAGS.num_layers, FLAGS.hidden_size))
         model = create_model(sess, False, False)
 
@@ -539,7 +521,7 @@ def decode_user():
                             [tf.compat.as_str(rev_response_vocab[output]) for output in outputs])
                         print('\n' + "Post: " + sentence + 'Response: ' + cur_response)
                         print("Predict response emotion category : %s" % int2emotion[em_predict[0]])
-                print("> ", end="")
+                print(">User: ", end="")
                 sys.stdout.flush()
                 sentence = sys.stdin.readline()
 
@@ -547,6 +529,8 @@ def decode_user():
 def main(_):
     if FLAGS.decode:
         decode()
+    elif FLAGS.decode_user:
+        decode_user()
     else:
         train()
 

@@ -40,10 +40,10 @@ def _extract_argmax_and_embed(embedding, num_symbols, output_projection=None,
         A loop function.
     """
     def loop_function(prev, _):
-        #if output_projection is not None:
+        # if output_projection is not None:
         #    prev = nn_ops.xw_plus_b(
         #            prev, output_projection[0], output_projection[1])
-        #prev_symbol = math_ops.argmax(prev, 1)
+        # prev_symbol = math_ops.argmax(prev, 1)
         prev_symbol = math_ops.argmax(array_ops.split_v(prev, [2, num_symbols-2], 1)[1], 1) + 2
         # Note that gradients will not propagate through the second parameter of
         # embedding_lookup.
@@ -52,6 +52,7 @@ def _extract_argmax_and_embed(embedding, num_symbols, output_projection=None,
             emb_prev = array_ops.stop_gradient(emb_prev)
         return emb_prev
     return loop_function
+
 
 def _extract_beam_search(embedding, beam_size, num_symbols, embedding_size, output_projection=None, update_embedding=True):
     """Get a loop_function that extracts the previous symbol and embeds it.
@@ -112,9 +113,7 @@ def _extract_beam_search(embedding, beam_size, num_symbols, embedding_size, outp
     return loop_function
 
 
-
-def rnn_decoder(decoder_inputs, initial_state, cell, loop_function=None,
-                                scope=None):
+def rnn_decoder(decoder_inputs, initial_state, cell, loop_function=None, scope=None):
     """RNN decoder for the sequence-to-sequence model.
 
     Args:

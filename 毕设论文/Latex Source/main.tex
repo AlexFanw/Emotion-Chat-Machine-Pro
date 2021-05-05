@@ -87,31 +87,45 @@
 
 \pagenumbering{Roman}
 
-\begin{cnabstract}{中文关键词；中文关键词；中文关键词}
+\begin{cnabstract}{情感对话生成；情感对话机器人；注意力机制；序列到序列模型；情感嵌入}
 
-中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要
-。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘
-要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文
-摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。
+现如今，人工智能以及大数据从方方面面不断地影响着人们的生活。而许多智能AI助手已经可以非常准确的理解用户意图并给出贴切的回复。
+然而这距离图灵的终极构想还相去甚远，机器能否表达出和人相匹配的智能依旧是目前的一大难题。因为人类在交流过程中，除了理性的信息
+传输外，还有情感的交互夹杂其中，这类信息是隐式却至关重要的，所以想要进一步提升人机对话的沉浸感，则必须要在对话生成中加入情感
+因素的考量。
 
-中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要
-。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘
-要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文
-摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。中文摘要。
+新的情感对话系统在原先的基础上加入了情感自动选择模块，而不需要再进行人为的介入。整个系统从算法设计上来说，在序列到序列模型的基础上
+加入了注意力机制、情感嵌入和语义嵌入。而从模块上来看，主要包括情感选择模块和回复生成模块。它不仅能准确回复用户的问题，还能在回复中
+融入适当的情感。新系统的展示界面前端则采用Vue.js来设计，同时，后端服务则使用Django框架，这不仅能直观的展现对话系统功能，更提高了
+交互的体验感。
+
+新的系统不仅使回复具有多样性并与主题相关，避免统一而通用的回复，还使得生成的回复富有情感完全不依赖于手动标注。完美地解决了当下人机
+对话系统中自动生成回复十分生硬的缺点，而用户体验也随之增强。
+
 
 \end{cnabstract}
 
-\begin{enabstract}{keyword in English, keyword in English, keyword in English}
+\begin{enabstract}{emotional dialogue generation, emotional chatbot, Attention Mechanisms, Sequence to Sequence, sentiment embedding}
 
-Abstract in English. Abstract in English. Abstract in English. Abstract in
-English. Abstract in English. Abstract in English. Abstract in English.
-Abstract in English. Abstract in English. Abstract in English. Abstract in
-English. Abstract in English. Abstract in English. Abstract in English.
+Nowadays, artificial intelligence and big data continue to affect people's lives in all aspects. Artificial intelligence 
+assistants can already understand users' intentions accurately and give appropriate responses.Nevertheless, this is still 
+far from Turing's ultimate conception. Whether the machine can express the intelligence that matches the human is a big problem 
+at present. Because in the process of human communication, besides logical information transmission, there are emotional 
+interactions. This type of information is implicit but crucial. Therefore, if we want to further enhance the immersion 
+of human-machine dialogue, we must consider emotion factor in dialogue generation.
+  
+The new emotional dialogue system adds an automatic emotional selection module on the original basis, without the need for human intervention. 
+In terms of algorithm design, the entire system is based on sequence to sequence model with attention mechanism, emotional embedding 
+and semantic embedding. From the perspective of modules, it mainly includes an emotion selection module and a response generation module. 
+Not only can it accurately respond to the users' post, but also in the responses incorporate appropriate emotions. The front-end of the new system
+is designed using Vue.js, while the back-end server uses the Django framework, which not only visually displays 
+the functions of the dialogue system, but also improves interactive experience.
 
-Abstract in English. Abstract in English. Abstract in English. Abstract in
-English. Abstract in English. Abstract in English. Abstract in English.
-Abstract in English. Abstract in English. Abstract in English. Abstract in
-English. Abstract in English. Abstract in English. Abstract in English.
+The new system makes the responses more diverse and relevant to the topic, avoiding uniform and universal replies, and also makes the 
+generated responses full of emotion and does not rely on manual annotation at all. It perfectly solves the shortcoming of the current 
+dialogue system that automatically generated responses are very blunt, and meanwhile, the user experience is also enhanced.
+
+
 
 \end{enabstract}
 
@@ -144,12 +158,14 @@ English. Abstract in English. Abstract in English. Abstract in English.
 节。我是第二小节。
 
 \subsection{研究内容和主要内容}
-\subsection{课题来源}
+
+\subsection{论文结构}
 
 \section{技术背景概述} 
-
-\subsection{基于注意力的序列到序列模型}
-
+\subsection{词嵌入}
+\subsection{序列到序列模型}
+\subsection{注意力机制}
+\subsection{本章小结}
 这是一个算法。这是一个算法。这是一个算法。这是一个算法。这是一个算法。这是一个
 算法。这是一个算法。这是一个算法。这是一个算法。这是一个算法。这是一个算法。这
 是一个算法。这是一个算法。这是一个算法。这是一个算法。
@@ -184,7 +200,6 @@ English. Abstract in English. Abstract in English. Abstract in English.
 。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是
 字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。
 
-\subsection{基于Keras的Word Embedding算法}
 
 这是一张表。这是一张表。这是一张表。这是一张表。这是一张表。这是一张表。这是一
 张表。这是一张表。这是一张表。这是一张表。这是一张表。这是一张表。这是一张表。
@@ -207,7 +222,6 @@ English. Abstract in English. Abstract in English. Abstract in English.
 。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是
 字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。
 
-\subsection{一堆表}
 
 这是一堆表。这是一堆表。这是一堆表。这是一堆表。这是一堆表。这是一堆表。这是一
 堆表。这是一堆表。这是一堆表。这是一堆表。这是一堆表。这是一堆表。这是一堆表。
@@ -227,17 +241,20 @@ English. Abstract in English. Abstract in English. Abstract in English.
 字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。我是字。
 
 \section{情感对话生成系统设计}
-\subsection{一张表}
-\subsection{一张表}
-\subsection{一张表}
+\subsection{系统结构设计}
+\subsection{情感选择器}
+\subsection{回复生成器}
+\subsection{损失函数}
+\subsection{本章小结}
 \section{情感对话生成系统实现}
-\subsection{一张表}
-\subsection{一张表}
-\subsection{一张表}
-\section{生成结果分析与演示}
-\subsection{一张表}
-\subsection{一张表}
-\subsection{一张表}
+\subsection{情感选择模块}
+\subsection{回复生成模块}
+\subsection{本章小结}
+\section{性能评估与分析}
+\subsection{测试环境与方案}
+\subsection{语义流畅度评估}
+\subsection{情感准确度评估}
+\subsection{本章小结}
 \section{总结与展望}
 
 \begin{thankpage}
