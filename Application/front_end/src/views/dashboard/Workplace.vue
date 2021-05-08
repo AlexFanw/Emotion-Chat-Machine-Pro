@@ -9,7 +9,7 @@
           <div class="content-title">
             {{ timeFix }}，{{ user.name }}<span class="welcome-text">，{{ welcome }}</span>
           </div>
-          <div>前端工程师 | 蚂蚁金服 - 某某某事业群 - VUE平台</div>
+          <div>华中科技大学 ｜ 计算机科学与技术学院</div>
         </div>
       </div>
     </template>
@@ -197,7 +197,7 @@ export default {
     }),
     currentUser () {
       return {
-        name: 'Serati Ma',
+        name: 'Alex Fan',
         avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png'
       }
     },

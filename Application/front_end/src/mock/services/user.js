@@ -383,17 +383,7 @@ const userNav = (options) => {
         'show': true
       },
       'component': 'RouteView',
-      'redirect': '/dashboard/workplace'
-    },
-    {
-      'name': 'workplace',
-      'parentId': 1,
-      'id': 7,
-      'meta': {
-        'title': '工作台',
-        'show': true
-      },
-      'component': 'Workplace'
+      'redirect': '/dashboard/analysis'
     },
     {
       'name': 'monitor',

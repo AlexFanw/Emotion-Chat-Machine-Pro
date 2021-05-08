@@ -27,7 +27,7 @@
             <p>后期可以考虑优化到编程式 Tab 栏，就可以没有这种限制</p>
             <a-form :form="form2" layout="inline">
               <a-form-item label="页面KEY">
-                <a-input v-decorator="['tabKey', { initialValue: '/dashboard/workplace' }]" />
+                <a-input v-decorator="['tabKey', { initialValue: '/dashboard/analysis' }]" />
               </a-form-item>
               <a-form-item label="自定义名称">
                 <a-input v-decorator="['tabName', {rules: [{required: true, message: '请输入新的 Tab 名称'}]}]"/>
