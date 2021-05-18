@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\bibauthor}[1]{#1}
 \providecommand{\bibeditor}[1]{#1}
 \providecommand{\bibtranslator}[1]{#1}
@@ -31,15 +31,113 @@
   \bibvolume{abs/1704.01074}\@.
   \newline\url{http://arxiv.org/abs/1704.01074}\@.
 
-\bibitem{ski17}
-\bibauthor{SKINAZE}\@. \bibtitle{HUSTPaperTemp}\bibmark{[EB/OL]}\@. \@.
-  \newline\url{https://github.com/skinaze/HUSTPaperTemp}\@.
+\bibitem{bahdanau2014neural}
+\bibauthor{BAHDANAU D\@, CHO K\@, BENGIO Y}\@. \bibtitle{Neural machine
+  translation by jointly learning to align and translate}\bibmark{[J]}\@.
+  \bibjournal{arXiv preprint arXiv:1409.0473}\@, \bibyear{2014}\@.
 
-\bibitem{baf96}
-\bibauthor{BAFNA V\@, PEVZNER P~A}\@. \bibtitle{Genome Rearrangements and
-  Sorting by Reversals}\bibmark{[J/OL]}\@. \bibjournal{SIAM J. Comput.}\@,
-  \bibyear{1996}\@, \bibvolume{25}\bibnumber{(2)}\thinspace{}\textnormal{:
-  }\bibpages{272\thinspace{}\textnormal{--}\thinspace{}289}\@.
-  \newline\url{http://dx.doi.org/10.1137/S0097539793250627}\@.
+\bibitem{luong2015effective}
+\bibauthor{LUONG M-T\@, PHAM H\@, MANNING C~D}\@. \bibtitle{Effective
+  approaches to attention-based neural machine translation}\bibmark{[J]}\@.
+  \bibjournal{arXiv preprint arXiv:1508.04025}\@, \bibyear{2015}\@.
+
+\bibitem{jean2014using}
+\bibauthor{JEAN S\@, CHO K\@, MEMISEVIC R, et~al}\@. \bibtitle{On using very
+  large target vocabulary for neural machine translation}\bibmark{[J]}\@.
+  \bibjournal{arXiv preprint arXiv:1412.2007}\@, \bibyear{2014}\@.
+
+\bibitem{彭叶红2019基于主题模型与变分自编码的情感对话生成技术研究}
+\bibauthor{彭叶红}\@.
+  \bibtitle{基于主题模型与变分自编码的情感对话生成技术研究}\bibmark{[D]}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{:
+  }\bibschool{华中师范大学}\@, \bibyear{2019}\@.
+
+\bibitem{对话风格迁移}
+\bibauthor{刘喜凯}\@.
+  \bibtitle{基于对话风格迁移的神经网络对话模型研究}\bibmark{[D]}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{:
+  }\bibschool{大连理工大学}\@, \bibyear{2020}\@.
+
+\bibitem{ghosh2017affect}
+\bibauthor{GHOSH S\@, CHOLLET M\@, LAKSANA E, et~al}\@. \bibtitle{Affect-lm: A
+  neural language model for customizable affective text
+  generation}\bibmark{[J]}\@. \bibjournal{arXiv preprint arXiv:1704.06851}\@,
+  \bibyear{2017}\@.
+
+\bibitem{刘宁2019人机交互的情感拟人化策略研究}
+\bibauthor{刘宁}\@.
+  \bibtitle{人机交互的情感拟人化策略研究}\bibmark{[D]}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{:
+  }\bibschool{重庆邮电大学}\@, \bibyear{2019}\@.
+
+\bibitem{wei2019emotion}
+\bibauthor{WEI W\@, LIU J\@, MAO X, et~al}\@. \bibtitle{Emotion-aware chat
+  machine: Automatic emotional response generation for human-like emotional
+  interaction}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 28th
+  ACM International Conference on Information and Knowledge Management}\@.
+  \bibyear{2019}\thinspace{}\textnormal{:
+  }\bibpages{1401\thinspace{}\textnormal{--}\thinspace{}1410}\@.
+
+\bibitem{bao2019cyclegan}
+\bibauthor{BAO F\@, NEUMANN M\@, VU N~T}\@. \bibtitle{CycleGAN-Based Emotion
+  Style Transfer as Data Augmentation for Speech Emotion
+  Recognition.}\bibmark{[C]} //\thinspace{}\bibbooktitle{INTERSPEECH}\@.
+  \bibyear{2019}\thinspace{}\textnormal{:
+  }\bibpages{2828\thinspace{}\textnormal{--}\thinspace{}2832}\@.
+
+\bibitem{li2016persona}
+\bibauthor{LI J\@, GALLEY M\@, BROCKETT C, et~al}\@. \bibtitle{A persona-based
+  neural conversation model}\bibmark{[J]}\@. \bibjournal{arXiv preprint
+  arXiv:1603.06155}\@, \bibyear{2016}\@.
+
+\bibitem{guthrie2006closer}
+\bibauthor{GUTHRIE D\@, ALLISON B\@, LIU W, et~al}\@. \bibtitle{A closer look
+  at skip-gram modelling.}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{LREC\thinspace{}\textnormal{: }Vol~6}\@.
+  \bibyear{2006}\thinspace{}\textnormal{:
+  }\bibpages{1222\thinspace{}\textnormal{--}\thinspace{}1225}\@.
+
+\bibitem{wordvector}
+\bibauthor{EMBEDDING}\@. \bibtitle{Chinese-Word-Vectors}\bibmark{[EB/OL]}\@.
+  \@. \newline\url{https://github.com/Embedding/Chinese-Word-Vectors}\@.
+
+\bibitem{mikolov2010recurrent}
+\bibauthor{MIKOLOV T\@, KARAFI{\'A}T M\@, BURGET L, et~al}\@.
+  \bibtitle{Recurrent neural network based language model}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{Eleventh annual conference of the international
+  speech communication association}\@. \bibyear{2010}\@.
+
+\bibitem{cho2014learning}
+\bibauthor{CHO K\@, VAN~MERRI{\"E}NBOER B\@, GULCEHRE C, et~al}\@.
+  \bibtitle{Learning phrase representations using RNN encoder-decoder for
+  statistical machine translation}\bibmark{[J]}\@. \bibjournal{arXiv preprint
+  arXiv:1406.1078}\@, \bibyear{2014}\@.
+
+\bibitem{mikolov2013efficient}
+\bibauthor{MIKOLOV T\@, CHEN K\@, CORRADO G, et~al}\@. \bibtitle{Efficient
+  Estimation of Word Representations in Vector Space}\bibmark{[J]}\@,
+  \bibyear{2013}\@.
+
+\bibitem{gers1999learning}
+\bibauthor{GERS F~A\@, SCHMIDHUBER J\@, CUMMINS F}\@. \bibtitle{Learning to
+  forget: Continual prediction with LSTM}\bibmark{[J]}\@, \bibyear{1999}\@.
+
+\bibitem{dey2017gate}
+\bibauthor{DEY R\@, SALEM F~M}\@. \bibtitle{Gate-variants of gated recurrent
+  unit (GRU) neural networks}\bibmark{[C]} //\thinspace{}\bibbooktitle{2017
+  IEEE 60th international midwest symposium on circuits and systems
+  (MWSCAS)}\@. \bibyear{2017}\thinspace{}\textnormal{:
+  }\bibpages{1597\thinspace{}\textnormal{--}\thinspace{}1600}\@.
+
+\bibitem{tang-etal-2014-learning}
+\bibauthor{TANG D\@, WEI F\@, YANG N, et~al}\@. \bibtitle{Learning
+  Sentiment-Specific Word Embedding for {T}witter Sentiment
+  Classification}\bibmark{[C/OL]} //\thinspace{}\bibbooktitle{Proceedings of
+  the 52nd Annual Meeting of the Association for Computational Linguistics
+  (Volume 1: Long Papers)}\@. \bibaddress{Baltimore,
+  Maryland}\thinspace{}\textnormal{: }\bibpublisher{Association for
+  Computational Linguistics}\@, \bibyear{2014}\thinspace{}\textnormal{:
+  }\bibpages{1555\thinspace{}\textnormal{--}\thinspace{}1565}\@.
+  \newline\url{https://www.aclweb.org/anthology/P14-1146}\@.
 
 \end{thebibliography}

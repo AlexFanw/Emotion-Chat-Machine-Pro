@@ -6,51 +6,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: main.bib
-Warning--string name "feb" is undefined
---line 15 of file main.bib
 Warning--Require citedate: DBLP:journals/corr/ZhouHZZL17
-Warning--Require year: ski17
-Warning--Require citedate: ski17
-Warning--Require citedate: baf96
-You've used 3 entries,
+Warning--Require address: 彭叶红2019基于主题模型与变分自编码的情感对话生成技术研究
+Warning--Require address: 对话风格迁移
+Warning--Require address: 刘宁2019人机交互的情感拟人化策略研究
+Warning--Require year: wordvector
+Warning--Require citedate: wordvector
+Warning--Require journal: mikolov2013efficient
+Warning--Require journal: gers1999learning
+Warning--Require citedate: tang-etal-2014-learning
+You've used 19 entries,
             3051 wiz_defined-function locations,
-            721 strings with 6462 characters,
-and the built_in function-call counts, 3605 in all, are:
-= -- 371
-> -- 9
-< -- 21
-+ -- 295
-- -- 27
-* -- 132
-:= -- 408
+            798 strings with 9720 characters,
+and the built_in function-call counts, 30571 in all, are:
+= -- 3423
+> -- 67
+< -- 153
++ -- 2871
+- -- 207
+* -- 794
+:= -- 3667
 add.period$ -- 0
-call.type$ -- 3
-change.case$ -- 12
+call.type$ -- 19
+change.case$ -- 96
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 477
-empty$ -- 135
-format.name$ -- 24
-if$ -- 923
+cite$ -- 28
+duplicate$ -- 4165
+empty$ -- 993
+format.name$ -- 192
+if$ -- 8228
 int.to.chr$ -- 0
-int.to.str$ -- 3
+int.to.str$ -- 19
 missing$ -- 0
-newline$ -- 36
-num.names$ -- 3
-pop$ -- 52
+newline$ -- 84
+num.names$ -- 19
+pop$ -- 347
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 32
+skip$ -- 315
 stack$ -- 0
-substring$ -- 394
-swap$ -- 115
+substring$ -- 3569
+swap$ -- 684
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 4
-while$ -- 50
-width$ -- 4
-write$ -- 67
-(There were 5 warnings)
+warning$ -- 9
+while$ -- 362
+width$ -- 21
+write$ -- 238
+(There were 9 warnings)
