@@ -15,45 +15,49 @@ Warning--Require citedate: wordvector
 Warning--Require journal: mikolov2013efficient
 Warning--Require journal: gers1999learning
 Warning--Require citedate: tang-etal-2014-learning
-You've used 19 entries,
+Warning--Require address: plutchik1980general
+Warning--Require year: ECMP
+Warning--Require citedate: ECMP
+Warning--Require citedate: liu-etal-2016-evaluate
+You've used 25 entries,
             3051 wiz_defined-function locations,
-            798 strings with 9720 characters,
-and the built_in function-call counts, 30571 in all, are:
-= -- 3423
-> -- 67
-< -- 153
-+ -- 2871
-- -- 207
-* -- 794
-:= -- 3667
+            836 strings with 10899 characters,
+and the built_in function-call counts, 38635 in all, are:
+= -- 4265
+> -- 85
+< -- 195
++ -- 3533
+- -- 267
+* -- 1054
+:= -- 4550
 add.period$ -- 0
-call.type$ -- 19
-change.case$ -- 96
+call.type$ -- 25
+change.case$ -- 120
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 4165
-empty$ -- 993
-format.name$ -- 192
-if$ -- 8228
+cite$ -- 38
+duplicate$ -- 5277
+empty$ -- 1327
+format.name$ -- 240
+if$ -- 10352
 int.to.chr$ -- 0
-int.to.str$ -- 19
+int.to.str$ -- 25
 missing$ -- 0
-newline$ -- 84
-num.names$ -- 19
-pop$ -- 347
+newline$ -- 102
+num.names$ -- 25
+pop$ -- 481
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 315
+skip$ -- 401
 stack$ -- 0
-substring$ -- 3569
-swap$ -- 684
+substring$ -- 4478
+swap$ -- 951
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 9
-while$ -- 362
-width$ -- 21
-write$ -- 238
-(There were 9 warnings)
+warning$ -- 13
+while$ -- 484
+width$ -- 27
+write$ -- 319
+(There were 13 warnings)

@@ -140,4 +140,46 @@
   }\bibpages{1555\thinspace{}\textnormal{--}\thinspace{}1565}\@.
   \newline\url{https://www.aclweb.org/anthology/P14-1146}\@.
 
+\bibitem{plutchik1980general}
+\bibauthor{PLUTCHIK R}\@. \bibtitle{A general psychoevolutionary theory of
+  emotion}\bibmark{[G]} //\thinspace{}\bibbooktitle{Theories of emotion}\@.
+  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Elsevier}\@,
+  \bibyear{1980}\thinspace{}\textnormal{:
+  }\bibpages{3\thinspace{}\textnormal{--}\thinspace{}33}\@.
+
+\bibitem{王红珍2012软件开发成本估算模型的研究}
+\bibauthor{王红珍\@, 李竹林\@, OTHERS}\@.
+  \bibtitle{软件开发成本估算模型的研究}\bibmark{[J]}\@.
+  \bibjournal{计算机与数字工程}\@, \bibyear{2012}\bibnumber{(2012 年
+  03)}\thinspace{}\textnormal{:
+  }\bibpages{4\thinspace{}\textnormal{--}\thinspace{}6+}\@.
+
+\bibitem{ECMP}
+\bibauthor{ALEXFAN}\@. \bibtitle{Emotion-Chat-Machine-Pro}\bibmark{[EB/OL]}\@.
+  \@. \newline\url{https://github.com/AlexFanw/Emotion-Chat-Machine-Pro}\@.
+
+\bibitem{miller1956human}
+\bibauthor{MILLER G}\@. \bibtitle{Human memory and the storage of
+  information}\bibmark{[J]}\@. \bibjournal{IRE Transactions on Information
+  Theory}\@, \bibyear{1956}\@,
+  \bibvolume{2}\bibnumber{(3)}\thinspace{}\textnormal{:
+  }\bibpages{129\thinspace{}\textnormal{--}\thinspace{}137}\@.
+
+\bibitem{liu-etal-2016-evaluate}
+\bibauthor{LIU C-W\@, LOWE R\@, SERBAN I, et~al}\@. \bibtitle{How {NOT} To
+  Evaluate Your Dialogue System: An Empirical Study of Unsupervised Evaluation
+  Metrics for Dialogue Response Generation}\bibmark{[C/OL]}
+  //\thinspace{}\bibbooktitle{Proceedings of the 2016 Conference on Empirical
+  Methods in Natural Language Processing}\@. \bibaddress{Austin,
+  Texas}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational
+  Linguistics}\@, \bibyear{2016}\thinspace{}\textnormal{:
+  }\bibpages{2122\thinspace{}\textnormal{--}\thinspace{}2132}\@.
+  \newline\url{https://www.aclweb.org/anthology/D16-1230}\@.
+
+\bibitem{li2015diversity}
+\bibauthor{LI J\@, GALLEY M\@, BROCKETT C, et~al}\@. \bibtitle{A
+  diversity-promoting objective function for neural conversation
+  models}\bibmark{[J]}\@. \bibjournal{arXiv preprint arXiv:1510.03055}\@,
+  \bibyear{2015}\@.
+
 \end{thebibliography}
