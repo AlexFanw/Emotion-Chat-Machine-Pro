@@ -1108,18 +1108,55 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 
 ECMP平台的前端设计模块中包括用户登陆、结果分析和对话互动三个主要模块。具体的设计和实现可以参考项目源码\cite{ECMP}，在这里不做赘述。
 \subsubsection{用户登陆页面}
+用户登陆界面主要使用了异步校验法，因为没有引入数据库结构所以账号密码直接写死在代码数据结构中。而后端在接收到前端传来的account和password字段之后，会和正确的字段进行校验，
+如果成功，则分配相应的用户权限并跳转至对话页面，如果失败则直接通过悬浮气泡进行提示。
 \begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
   \centering %图片居中
-  \includegraphics[width=1\textwidth]{images/show.png} %插入图片，[]中设置图片大小，{}中是图片文件名
-  \caption{交互平台展示图} %最终文档中希望显示的图片标题
-  \label{Fig.show} %用于文内引用的标签
+  \includegraphics[width=1\textwidth]{images/login.jpg} %插入图片，[]中设置图片大小，{}中是图片文件名
+  \caption{交互平台登录页面} %最终文档中希望显示的图片标题
+  \label{Fig.login} %用于文内引用的标签
 \end{figure}
+设计过程中后端主要采用了以下四个API接口：
+\begin{itemize}
+  \item auth-login
+  \item get-user-info
+  \item return-2-step-code
+  \item auth-logout
+\end{itemize}
 
-而点击开始对话按钮之后，会直接进入对话互动界面，并且在输入post之后，展示平台会自动给出相应的response以及判定需要用什么情感进行回复。
+分别用于校验用户账号密码、返回用户权限信息、返回登陆状态码以及退出登陆。
 
-\subsubsection{数据分析页面}
+而前端则只需要将账号密码字段格式化后通过axios中的post方法将表单传入Django的服务端即可。
 
 \subsubsection{对话互动页面}
+如图\ref{Fig.chatbot}所示，侧边栏中一共分为Analysis、Source和ChatBot三个子栏目，分别用于展示数据看板、项目源代码以及对话演示系统。
+点击ChatBot即可跳转至ECMP对话系统。
+\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
+  \centering %图片居中
+  \includegraphics[width=1\textwidth]{images/Chatbot.jpg} %插入图片，[]中设置图片大小，{}中是图片文件名
+  \caption{对话互动页面} %最终文档中希望显示的图片标题
+  \label{Fig.chatbot} %用于文内引用的标签
+\end{figure}
+
+因为本个项目中只涉及单轮对话，所以在对话形式上选择了表单发送的单轮传输模式。在“请输入您要发送的消息”之后传入要输入的语句，并点击“Send”按钮，
+即可将会话框中的消息传入后端的ECMP原型系统中，并等待生成response。
+
+如下图\ref{Fig.chatpost}所示，在对话框中输入“今天吃了好吃的”，并通过vue封装好的axios API中的post方法将表单中的语句发送到ECMP系统中。
+\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
+  \centering %图片居中
+  \includegraphics[width=1\textwidth]{images/chatpost.jpg} %插入图片，[]中设置图片大小，{}中是图片文件名
+  \caption{对话互动页面} %最终文档中希望显示的图片标题
+  \label{Fig.chatpost} %用于文内引用的标签
+\end{figure}
+
+在经过ECMP的情感预测和回复生成之后，得到最佳的回复结果，并通过response将结果返回至前端，并在modal结构中进行打印。如图\ref{Fig.chatresponse}中
+原型系统给出的最佳回复为：“看起来很好吃的样子”
+\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
+  \centering %图片居中
+  \includegraphics[width=1\textwidth]{images/chatresponse.jpg} %插入图片，[]中设置图片大小，{}中是图片文件名
+  \caption{对话互动页面} %最终文档中希望显示的图片标题
+  \label{Fig.chatresponse} %用于文内引用的标签
+\end{figure}
 
 \subsection{本章小结}
 最终的评估结果证明，ECMP模型目前优于现有的所有情感对话模型，因为其拥有情感自动选择器，可以生成更为贴近于真实日常对话中的情感表达。
