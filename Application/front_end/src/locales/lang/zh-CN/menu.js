@@ -5,7 +5,7 @@ export default {
     'menu.dashboard.analysis': 'Analysis',
     'menu.dashboard.monitor': 'Source Code',
     'menu.form': '表单页',
-    'menu.form.basic-form': '基础表单',
+    'menu.form.basic-form': 'Chat Bot',
     'menu.form.step-form': '分步表单',
     'menu.form.step-form.info': '分步表单（填写转账信息）',
     'menu.form.step-form.confirm': '分步表单（确认转账信息）',

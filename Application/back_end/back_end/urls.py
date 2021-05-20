@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.conf.urls import url
 
 from back_end.auth_login import auth_login, get_user_info, return_2_step_code, auth_logout
+from back_end.chatbot import chat
 
 urlpatterns = [
     url(r'^auth/login', auth_login),
     url(r'^user/info', get_user_info),
     url(r'^auth/2step-code', return_2_step_code),
     url(r'^admin/', admin.site.urls),
-    url(r'^auth/logout', auth_logout)
+    url(r'^auth/logout', auth_logout),
+    url(r'^ecmp/chat', chat)
 ]
