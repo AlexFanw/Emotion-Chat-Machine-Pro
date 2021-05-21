@@ -287,7 +287,6 @@ class Seq2SeqModel(object):
             else:
                 return outputs[0], outputs[1:], pos_acc, res_acc, temp_outputs[2]   # ppx, senti_loss, senti_infer, logits
 
-
     def get_batch(self, data, bucket_id, decode = False):
 
         encoder_size, decoder_size = self.buckets[bucket_id]

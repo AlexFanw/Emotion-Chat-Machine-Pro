@@ -22,7 +22,7 @@ AlexFan Graduation Project.
 
 ## 🔧Phase 2
 
-1.查漏补缺相关知识点（《机器学习》——周志华，机器学习课程——吴恩达）
+1.查漏补缺相关知识点  《机器学习》——周志华，机器学习课程——吴恩达
 
 2.复现Emotion-aware Chat Machine_Automatic 框架
 
@@ -34,3 +34,6 @@ AlexFan Graduation Project.
 
 1.撰写论文
 
+2.论文修改-论文查重-论文降重
+
+3.答辩PPT（10页左右）
