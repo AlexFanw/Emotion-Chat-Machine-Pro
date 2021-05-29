@@ -6,7 +6,7 @@
 \classnum{CS1703}
 \stunum{U201714670}
 \instructor{魏巍}
-\date{2021年6月1日}
+\date{2021年5月31日}
 
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -22,7 +22,7 @@
 \usepackage{pgfplots}
 \usepackage{graphicx} %插入图片的宏包
 \usepackage{float}
-
+\usepackage{fancyhdr}
 
 \pgfplotsset{compat=1.16}
 
@@ -84,14 +84,14 @@
 
 \maketitle
 
+\pagenumbering{roman}
 \statement
 
-\clearpage
-
-\pagenumbering{Roman}
+\clearpage  
+\phantom{s}
 
 \begin{cnabstract}{情感嵌入；语义嵌入；情感对话生成；情感对话机器人；注意力机制；序列到序列模型；}
-
+\pagenumbering{Roman}
 目前，人工智能以及大数据从方方面面不断地影响着人们的生活，比如目前比较流行的智能聊天机器人。
 许多真实世界的智能语音机器人已经能够准确完成很多基本的任务型对话，足以证明目前人工技术的发展已经取得长足进步。
 但是，在很多闲聊性对话中，智能聊天机器人目前对话结果不太理想，比如个性一致性、风格一致性、情感交互方面等，尤其是情感交互方面，
@@ -107,6 +107,8 @@
 通过真实实验显示，提出的模型不仅在回复多样性及相关性上较已有系统有大幅提升，且生成的回复在情感上较以往系统更丰富，
 较好的解决现有人机对话系统中生成回复单一、通用等问题。
 \end{cnabstract}
+
+
 
 \begin{enabstract}{emotional embedding, semantic embedding, emotional dialogue generation, emotional chatbot, Attention Mechanism, Sequence to Sequence}
 

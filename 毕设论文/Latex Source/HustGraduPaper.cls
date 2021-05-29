@@ -137,7 +137,7 @@
 \RequirePackage{fancyhdr}
 %设置页眉样式
 \newcommand{\headstyle}{
-	\fancyhead[C]{\textcolor[RGB]{192,0,0}{\kaishu \zihao{3} 华 \enspace
+	\fancyhead[C]{\bfseries \textcolor[RGB]{192,0,0}{\kaishu \zihao{3} 华 \enspace
     中 \enspace 科 \enspace 技 \enspace 大 \enspace 学 \enspace 毕 \enspace
     业 \enspace 设 \enspace 计}}
   \def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
@@ -149,8 +149,8 @@
 }
 %设置页脚样式
 \newcommand{\footstyle}{\fancyfoot[C]{\huawenzhongsong \zihao{5} \thepage}
-	\fancyfoot[L]{\rule[5pt]{\HGP@footlinelength}{0.4pt}}
-	\fancyfoot[R]{\rule[5pt]{\HGP@footlinelength}{0.4pt}}
+	\fancyfoot[L]{\vspace*{-2.5mm}\color[RGB]{24,116,205} \rule[5pt]{\HGP@footlinelength}{0.4pt}}
+	\fancyfoot[R]{\vspace*{-2.5mm}\color[RGB]{24,116,205} \rule[5pt]{\HGP@footlinelength}{0.4pt}}
 }
 \pagestyle{fancy}
 \fancyhf{} %清空原有样式
@@ -498,6 +498,10 @@
 			{\zihao{3} \huawenzhongsong \@date}\\
 		\end{center}
 	\end{titlepage}
+	\clearpage  
+	\phantom{s}
+	\thispagestyle{empty}
+	\newpage
 }
 
 
@@ -545,8 +549,15 @@
 	\def\HGP@notconfidential{\HGP@checkedbox}
 	\def\HGP@yearofconfidentiality{}
 	\kv@parse{#1}{\arg@statement}
+	\fancypagestyle{plain}{%
+	\fancyhf{} %清空原有样式
+	\headstyle
+	\footstyle
+	\HGP@plainfooterstyle
+	}
 	\clearpage
-	\thispagestyle{empty}
+	%\thispagestyle{empty}
+	%\pagestyle(plain)
 	\vspace*{1em}
 	\begin{center}
 		\heiti \zihao{-2} \bfseries
@@ -728,6 +739,7 @@
 		\fancypagestyle{plain}{%
 			\fancyhf{} %清空原有样式
 			\headstyle
+			\footstyle
 			\HGP@plainfooterstyle
 		}
 		%设置目录hdr和页码选项
@@ -836,5 +848,3 @@
 	
 	\clearpage
 }
-
-
