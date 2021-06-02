@@ -101,14 +101,16 @@
 因此，本文重点研究基于深度学习的情绪感知对话回复生成技术，其在已有序列到序列的对话回复生成模型基础上，考虑引入情绪自动选择模块，
 实现端到端的自动化情绪感知回复生成系统。具体地说，本文主要工作是在传统的基于序列到序列的文本生成模型基础上，考虑对文本中的情绪进行预测，
 并进行情感编码，通过情绪嵌入的方式与文本原本语义编码进行融合，并利用注意力机制进行加强以实现基于自动化情绪感知的文本对话生成模型，
-其能够有效感知对话中的情绪并选择合适情绪融入生成的对话回复中。另外，在前端展示界面则考虑采用Vue.js设计实现，同时后端服务器端考虑
-使用Django框架，上述系统不仅能直观的展现整个历史对话过程，还能够直观的提升人机交互的舒适性和流畅性，极大提升用户体验。
+其能够有效感知对话中的情绪并选择合适情绪融入生成的对话回复中。
 
-通过真实实验显示，提出的模型不仅在回复多样性及相关性上较已有系统有大幅提升，且生成的回复在情感上较以往系统更丰富，
+另外，在前端展示界面则考虑采用Vue.js设计实现，同时后端服务器端考虑使用Django框架，上述系统不仅能直观的展现整个历史对话过程，还能够直观的提升人机交互的舒适性和流畅性，极大提升用户体验。
+
+通过真实实验的实验结果显示，提出的模型不仅在回复多样性及相关性上较已有系统有大幅提升，且生成的回复在情感上较以往系统更丰富，
 较好的解决现有人机对话系统中生成回复单一、通用等问题。
 \end{cnabstract}
 
-
+\clearpage  
+\phantom{s}
 
 \begin{enabstract}{emotional embedding, semantic embedding, emotional dialogue generation, emotional chatbot, Attention Mechanism, Sequence to Sequence}
 
@@ -127,8 +129,9 @@ an end-to-end automatic emotion-aware response generation system. Specifically, 
 sequence-to-sequence text generation model, considering the prediction of emotions in the text and encoding the emotions
 by means of emotion embedding and fusing the original semantic coding of the text. And dialogue generation model based on automatic emotion 
 perception, which can effectively perceive the emotions in the dialogue and select appropriate emotions to incorporate into the generated 
-dialogue replies, is strengthened by using attention mechanism. In addition, the front-end display interface 
-is designed and implemented by Vue.js, and the back-end server is intended to use the Django framework. The above-mentioned system 
+dialogue replies, is strengthened by using attention mechanism. 
+
+In addition, the front-end display interface is designed and implemented by Vue.js, and the back-end server is intended to use the Django framework. The above-mentioned system 
 can not only intuitively display the entire historical dialogue process, but also enhance the comfort and smoothness of human-computer 
 interaction, which greatly improves the user experience.
 
@@ -151,7 +154,7 @@ generating single, universal responses and other issues.
 对话中加入情感因素，会大幅度提高整个对话的流畅程度和用户满意度。
 
 目前现存的情感对话生成系统，大多是基于朱小燕、黄民烈老师团队开发的Emotion Chat Machine\cite{DBLP:journals/corr/ZhouHZZL17}
-的一些变体，虽然能生成富有情感的回复，但是存在的问题是非常依赖于手动选择情感，在用户使用体验上较差。所以该类系统需要改进的地方是（1）生成的回复富有情感且完全
+的一些变体，虽然能生成富有情感的回复\cite{庄寅2021文本情感对话系统研究综述}，但是存在的问题是非常依赖于手动选择情感，在用户使用体验上较差。所以该类系统需要改进的地方是（1）生成的回复富有情感且完全
 不依赖于手动标注；（2）回复具有多样性并与主题相关；（3）避免统一而通用的回复。基于此，对传统ECM模型进行优化改进有着重要的意义。
 
 \subsection{国内外研究现状}
@@ -169,9 +172,9 @@ generating single, universal responses and other issues.
 非显式语义进行模型搭建，使得生成的回复内容具有更好的拓展性。刘\cite{对话风格迁移}等人则基于对话风格迁移的对话神经网络，提出了融合检索结果机制的生成对话模型，来避免重复单一的通用性回复。而诸多
 研究表面情感因素对于成功建立起拟人对话生成模型具有重要意义，Ghosh\cite{ghosh2017affect}的团队提出并构建了一个情感语言模型，该模型可以按照指定的情感类型和情感强度来生成对应的结构化语言。
 Zhou等人\cite{DBLP:journals/corr/ZhouHZZL17}所提出的基于条件和强化学习的自动编码框架，同样也是在给定的情感下生成最为合适的回复，刘\cite{刘宁2019人机交互的情感拟人化策略研究}
-等人提出了基于PAD的对话生成框架，PAD简单直接的将情感纬度从三个维度划分，分别为激活、愉悦与优势。但是上述的研究一直致力于提升生成回复的流利度和
+等人提出了基于PAD\cite{刘磊2019基于}的对话生成框架，PAD简单直接的将情感纬度从三个维度划分，分别为激活、愉悦与优势。但是上述的研究一直致力于提升生成回复的流利度和
 情感丰富度，但都需要人来手动介入去选择注入最佳的情感类别，导致了对话生成过程的性能和效率大大降低。所以本课题的主要研究方向则是在Zhou\cite{DBLP:journals/corr/ZhouHZZL17}等人的经典ECM框架下进行升级，
-加入自动情感选择模块，使情感对话系统能自动选择最佳的回复情感并生成多样性的回复。
+加入自动情感选择模块，使情感对话系统能自动选择最佳的回复情感\cite{oh2017chatbot}并生成多样性的回复。
 
 \subsection{研究目的和主要内容}
 迄今为止，对话生成模型大多采用了序列到序列模型，序列到序列(Seq2seq)注意力模型通常是基于深度 RNN 的编码/解码器的体系结构。但是该模型在情感对话上目前有着下面几个
@@ -185,7 +188,7 @@ Zhou等人\cite{DBLP:journals/corr/ZhouHZZL17}所提出的基于条件和强化�
 
 基于以上三个主要问题，本课题中在模型设计和实现过程中将会主要聚焦于以下三点：
 
-（1）语义嵌入（Semantic Embedding），基于注意力机制针对文本中的主题相关词进行建模，并在回复中围绕主题相关词语进行相似性扩展。
+（1）语义嵌入（Semantic Embedding），基于注意力机制\cite{杨丰瑞2020基于注意力机制的主题扩展情感对话生成}针对文本中的主题相关词进行建模，并在回复中围绕主题相关词语进行相似性扩展。
 
 （2）情感嵌入（Sentiment Embedding），将情感理解成一种特殊的语义来进行编码，将其作为等价于语义和主题的一种维度来进行嵌入，使生成的回复具有与主题联系更密切的情感倾向。
 
@@ -222,14 +225,19 @@ Zhou等人\cite{DBLP:journals/corr/ZhouHZZL17}所提出的基于条件和强化�
 并嵌入到一个向量空间中，因为神经网络是无法识别直接的语言文字的，所以只能将其转换为向量空间来进行训练。
 这个向量空间维数低得多并且是连续的而非离散的，并且全部的word或者phrase都会被一一对应映射到实数域上，展开为向量。
 
-而最简单的映射编码方式是one-hot encoding，譬如如果一个字典和字库里一共有N个单词，比如boy，girl，man，woman这四个单词，它们的one-hot编码应该是：
-\begin{align}
-  &boy = [1,0,0,0]\notag\\
-  &girl = [0,1,0,0]\notag\\
-  &man = [0,0,1,0]\notag\\
-  &woman = [0,0,0,1]\notag
-\end{align}
-
+而最简单的映射编码方式是one-hot encoding，譬如如果一个字典和字库里一共有N个单词，比如boy，girl，man，woman这四个单词，它们的one-hot编码如表\ref{tbl:onehot}所示。
+\begin{generaltab}{one-hot编码示例}{tbl:onehot}
+  \begin{tabular}{c|ccc}
+    \toprule
+    名称 & 编码 \\
+    \midrule
+    boy & [1,0,0,0] \\
+    girl & [0,1,0,0] \\
+    man & [0,0,1,0] \\
+    woman & [0,0,0,1] \\
+    \bottomrule
+  \end{tabular}
+\end{generaltab}
 
 但是显然这种编码方式无法判断出相似词语的关系，因为在这个向量空间中，任何两个词语的距离都是一样的，而理想的情况应该是
 $distance(boy, man) = distance(girl, woman)$，所以需要用到其他词嵌入算法，其中最为经典的应该是Word2Vec，以下
@@ -290,9 +298,9 @@ Skip-gram算法预测上下文是通过给定的中间部分的词语。相反�
 在按照时间步的序列展开RNN之后，可以在展开之后得到全部的序列网络，如果句中单词的总个数为10，神经网络就会被展开为10层。而RNN中每个Cell中的计算过程如下：
 
 \begin{itemize}
-  \item $x_t$:时刻t的输入，例如$x_2$则句子中的三号词的one-hot编码。
-  \item $s_t$:时刻t的隐藏状态，也可以称为$h_t$，是网络的memory结构，$s_t$的计算表达式为：$s_t=f(Ux_t + Ws_{t-1})$
-  \item $o_t$:时刻t的输出，也是所有的单词在下一个时刻出现概率的向量合集矩阵，表达式为$o_t = softmax(Vs_t)$
+  \item [1)] $x_t$:时刻t的输入，例如$x_2$则句子中的三号词的one-hot编码。
+  \item [2)] $s_t$:时刻t的隐藏状态，也可以称为$h_t$，是网络的memory结构，$s_t$的计算表达式为：$s_t=f(Ux_t + Ws_{t-1})$
+  \item [3)] $o_t$:时刻t的输出，也是所有的单词在下一个时刻出现概率的向量合集矩阵，表达式为$o_t = softmax(Vs_t)$
 \end{itemize}
 
 \begin{figure}[htbp] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
@@ -302,21 +310,21 @@ Skip-gram算法预测上下文是通过给定的中间部分的词语。相反�
   \label{Fig.rnn} %用于文内引用的标签
 \end{figure}
 
-此外需要注意的是：
+此外在训练过程中需要注意以下几点。
 \begin{itemize}
-  \item 可以将隐藏状态$s_t$视为网络的存储器，获得先前时间中发生的信息，并且仅使用时间t处的存储器来计算输出。如前所述，这种情况稍微复杂一些，因为实际上只能获得一定时期的信息。
-  \item 传统的神经网络在每个层中使用不同的参数，而RNN在所有步骤中都使用公共参数$(U,V,W)$，这意味着我们在每个步骤中执行相同的任务，但只有输入是不同的。这将减少需要学习的参数数量
-  \item RNN最重要的就是隐藏层，它可以间接的用于获取句子的信息。图\ref{Fig.rnn}是不是绝对必要的，观察可以发现图中每个步骤都在输出，这需要针对不同的任务进行设计。例如，如果需要得到一个句子情感的预测结果，仅仅需要关注最终的输出而不需要
+  \item [1)] 可以将隐藏状态$s_t$视为网络的存储器，获得先前时间中发生的信息，并且仅使用时间t处的存储器来计算输出。如前所述，这种情况稍微复杂一些，因为实际上只能获得一定时期的信息。
+  \item [2)] 传统的神经网络在每个层中使用不同的参数，而RNN在所有步骤中都使用公共参数$(U,V,W)$，这意味着我们在每个步骤中执行相同的任务，但只有输入是不同的。这将减少需要学习的参数数量
+  \item [3)] RNN最重要的就是隐藏层，它可以间接的用于获取句子的信息。图\ref{Fig.rnn}是不是绝对必要的，观察可以发现图中每个步骤都在输出，这需要针对不同的任务进行设计。例如，如果需要得到一个句子情感的预测结果，仅仅需要关注最终的输出而不需要
   关心每个单词的情感值。同样也不必每次都输入信息。
 \end{itemize}
 
 而RNN也有许多不同的种类来应对不同的需求。
 \begin{itemize}
-  \item one-to-one: 就是最普通的神经网络，几乎不能算是RNN。
-  \item one-to-many: 常用于music generation、image captioning。
-  \item many-to-one: 常用于sentiment classification。
-  \item many-to-many (输入输出等长): 常用于video classification on frame level。
-  \item many-to-many (输入输出不等长): 常用于machine translation，前一部分的作用是encoder，后一部分作用是decoder。
+  \item [1)] one-to-one: 就是最普通的神经网络，几乎不能算是RNN。
+  \item [2)] one-to-many: 常用于music generation、image captioning。
+  \item [3)] many-to-one: 常用于sentiment classification。
+  \item [4)] many-to-many (输入输出等长): 常用于video classification on frame level。
+  \item [5)] many-to-many (输入输出不等长): 常用于machine translation，前一部分的作用是encoder，后一部分作用是decoder。
 \end{itemize}
 
 \subsection{序列到序列模型}
@@ -330,15 +338,15 @@ Skip-gram算法预测上下文是通过给定的中间部分的词语。相反�
   \label{Fig.seq2seq} %用于文内引用的标签
 \end{figure}
 这类框架由Cho\cite{cho2014learning}等人提出,同时Cho的团队也提出了GRU的原型。
-如图\ref{Fig.seq2seq}所示，在Encoder中，主要关注的是隐藏状态$h_t$的生成，$h_t$的生成过程如下公式所示：
+如图\ref{Fig.seq2seq}所示，在Encoder中，主要关注的是隐藏状态$h_t$的生成，$h_t$的生成过程如\ref{1}所示：
 \begin{align}
   h_t = tanh(W[h_{t-1},x_t] + b) \label{1}
 \end{align}
-最终Encoder输出上下文语义向量为：
+最终Encoder输出上下文语义向量为\ref{2}所示：
 \begin{align}
   &c = tanh(Uh_T) \label{2}
 \end{align}
-在Decoder中对$h_t$和$o_t$进行迭代计算：
+在Decoder中对$h_t$和$o_t$进行迭代计算。
 \begin{align}
   &h_t = tanh(W[h_{t-1},y_{t-1},c] + b) \label{3}\\
   &o_t = softmax(Vh_t + c) \label{4}
@@ -355,7 +363,7 @@ Skip-gram算法预测上下文是通过给定的中间部分的词语。相反�
 \end{align}
 其中$o_t$是一个向量，是每个时间点的输出，向量的维度为单词表的长度。向量中每个值是每个单词的概率。
 而这个过程将一直持续到预测值<END>的概率为最大时，预测就会结束。
-预测下一个单词出现概率的公式为：
+预测下一个单词出现概率的公式如\ref{5}所示：
 \begin{align}
   P(y_{t}|y_{t-1},y_{t-2},y_{t-3},\dots,y_{1},c) = g(h_{t},y_{t-1},c) \label{5}
 \end{align}
@@ -377,27 +385,26 @@ Skip-gram算法预测上下文是通过给定的中间部分的词语。相反�
 当前的这个单词的影响权重是不一样的，这样效果就会大幅度提升，尤其是在解决翻译长难句的问题时。
 
 如图\ref{Fig.attention}所示，和传统Seq2seq模型不同的是，Seq2seq with Attention实际上是在decoder和encoder之间加入了一个attention层。
-用于计算每一步decode时所需要的上下文向量$context_t$
+用于计算每一步decode时所需要的上下文向量$context_t$。
 
 decoder部分针对每种$y_t$进行计算的时候，包括三个部分的输入：
-\begin{enumerate}
-  \item $context_t$:上下文信息。
-  \item $h_{t-1}$:也可以写作$s_{t-1}$，为隐藏层状态。
-  \item $y_{t-1}$:上个时刻中decoder的输出。
-\end{enumerate}
+\begin{itemize}
+  \item [1)]$context_t$:上下文信息。
+  \item [2)]$h_{t-1}$:也可以写作$s_{t-1}$，为隐藏层状态。
+  \item [3)]$y_{t-1}$:上个时刻中decoder的输出。
+\end{itemize}
 
 在attention模块部分，使用$A_{<t,t^*>}$来表示在翻译$y_{t}$的时候应该花在$a_{t^*}$上的注意力的数量，所以计算$context_{t}$:
 \begin{align}
   context_{t} = \sum_{t^*=1}^{T_x}{A_{<t,t^{*}>}}a_{t^*} \label{6}
 \end{align}
-
 在attention进行计算时，输入包括两部分：
 \begin{enumerate}
-  \item decoder模块中上一个时刻的隐藏状态$s_{t-1}$。
-  \item encoder模块所有时刻的输出$a_{t^*}$。
+  \item [1)]decoder模块中上一个时刻的隐藏状态$s_{t-1}$。
+  \item [2)]encoder模块所有时刻的输出$a_{t^*}$。
 \end{enumerate}
 
-如图\ref{Fig.attention}所示，attention模块其实本质上也是一个神经网络，然后使用softmax对输出进行归一化处理。
+如图\ref{Fig.attention}所示，attention模块其实本质上也是一个神经网络，然后使用softmax对输出进行归一化处理，如\ref{7}所示。
 \begin{align}
   \sum_{t^*=1}^{T_x}{A_{<t,t^{*}>}}=1 \label{7}
 \end{align}
@@ -410,7 +417,7 @@ decoder部分针对每种$y_t$进行计算的时候，包括三个部分的输�
 而attention机制则是优化概率计算过程中权重分配的一个类神经网络层。而纵观本小节整个发展思路，其实就是在不断地模拟真人的思维方式，尤其是attention机制，不仅可以让机器关注于翻译时的
 上下文，更可以聚焦于那些对情感有明显作用的词句，这也是本课题的中心思想。
 
-\section{基于注意力机制（Attention）的情感对话生成系统设计}
+\section{基于注意力机制的情感对话生成系统设计}
 本章节将围绕整个原型系统的设计来展开，在Zhou\cite{DBLP:journals/corr/ZhouHZZL17}等人的课题基础上，加入了情感选择模块，并对基于内外部记忆的回复生成模块进行了优化改进，不再依赖于手动操作。
 
 本课题主要围绕情感对话生成来开展工作，所以其主要任务是能主动获取post中的情感和语义，并预测出response中所使用的最佳情感并生成对应的回复。
@@ -430,15 +437,15 @@ decoder部分针对每种$y_t$进行计算的时候，包括三个部分的输�
 而回复生成模块（Response Generator）则主要沿用ECM\cite{DBLP:journals/corr/ZhouHZZL17}模型中的生成模块，使用many-to-many不定长度的sequence to sequence模型来生成回复，
 但是会在情感注意力层将情感选择模块所生成的向量纳入考量,其主要思想仍然是使用内部外部记忆来使得所选择的情感能在所生成的回复中得到完全的释放。
 
-以下两个章节为两个子模块的详细设计。
+以下两个子章节为两个子模块的详细设计。
 
 \subsection{基于融合预测网络的情感选择模块}
 情感选择模块总共分为以下三个部分:
-\begin{enumerate}
-  \item 语义编码模块
-  \item 情感编码模块
-  \item 融合预测网络
-\end{enumerate} 
+\begin{itemize}
+  \item [1)]语义编码模块
+  \item [2)]情感编码模块
+  \item [3)]融合预测网络
+\end{itemize} 
 下面三个小节将分别描述这三个部分的功能和作用，以及训练时使用到的损失函数。其中融合预测网络会将语义编码模块和情感编码模块中所产生的语义和情感隐藏向量中进行权重重组融合，并得到最佳情感。
 
 \subsubsection{语义编码}
@@ -456,9 +463,9 @@ decoder部分针对每种$y_t$进行计算的时候，包括三个部分的输�
 那么通过模型的训练，这两个单词（中国，美国）在词嵌入之后的向量应该非常相似。Word2Vec的创始人提出了几个非常重要的优化方案，
 例如：
 \begin{itemize}
-  \item 将非常常用的word当成单个单词进行处理。
-  \item 随机抽样出现次数非常高频的单词，这样的操作可以减少样本训练个数。
-  \item 对于所需要优化的目标，使用negative sampling来降低算力负担和提高训练词向量的质量。
+  \item [1)]将非常常用的word当成单个单词进行处理。
+  \item [2)]随机抽样出现次数非常高频的单词，这样的操作可以减少样本训练个数。
+  \item [3)]对于所需要优化的目标，使用negative sampling来降低算力负担和提高训练词向量的质量。
 \end{itemize}
 
 
@@ -486,14 +493,14 @@ LSTM一共有三个门，分别是Input门、Forget和Output门。GRU如图\ref{
 这两个门可以决定哪些信息是可以作为最终的输出，它们可以保存跨度非常长的序列中的有效信息，并且这种信息不会随着时间的推移而清除或者被遗忘掉。
 所以在本课题中采用了GRU而非LSTM来作为最小的RNN单元。
 
-通过GRU网络，可以从$post$序列$x = (x_1,x_2,...,x_T)$中抽取关键信息，并且将其映射到隐藏层,计算公式为：
+通过GRU网络，可以从$post$序列$x = (x_1,x_2,...,x_T)$中抽取关键信息，并且将其映射到隐藏层,计算公式如\ref{3.1}所示：
 \begin{align}
   h_s^t = GRU(h_s^{t-1},x_t) \label{3.1}
 \end{align}
 其中$h_s^t$表示在时间t时隐藏层的状态。
 
 但是为了增强隐藏层的信息传递有效性，可以使用注意力机制来使编码器更关注于和主题密切相关的词句。并且在最后获得最终的语义向量
-$\widetilde{h_s}$，其计算公式如下：
+$\widetilde{h_s}$，其计算公式如如\ref{3.2}所示：
 \begin{align}
   \widetilde{h_s} = \sum_{i=1}^{T}a_i h_s^i \label{3.2}
 \end{align}
@@ -501,20 +508,20 @@ $\widetilde{h_s}$，其计算公式如下：
 而是会依赖于每个GRU节点的隐藏层状态。而$a_i$则是训练过程中需要不断地去学习和重新分配的权重。
 
 而$a_i$主要依赖于encoder的隐藏层状态$h_s^i$，将$h_s^i$输入一个多层感知机，然后再通过一个softmax层来得到$a_i$权重大小，并且可以确保的是
-所有的$a_i$相加起来的总和为1。$a_i$的计算公式如下：
+所有的$a_i$相加起来的总和为1。$a_i$的计算公式如\ref{3.3}所示：
 \begin{align}
   a_i = softmax(V_a tanh(W_a(h_s^i)^T)) \label{3.3}
 \end{align}
 将输出全部映射到从0到1的区间内，softmax从本质上可以视为一种概率分布映射算法，从概率向量空间中的分布来多分类。它是常用于多分类的一个算法，
-如果有一堆需要多分类的数，那么第i个元素的softmax的值就是：
+如果有一堆需要多分类的数，那么第i个元素的softmax的值如\ref{sfm}所示：
 \begin{align}
-  S_i = \frac{e_i}{\sum_j e_j}
+  S_i = \frac{e_i}{\sum_j e_j} \label{sfm}
 \end{align}
 而tanh则是一个激活函数，激活函数在训练过程中是非常有必要的。因为如果使用线性的激活函数，那神经网络则失去了意义，仅仅是将输入经过线性组合变换之后
 再输出，在这类情况下，多层隐藏层的神经网络和单个隐藏层的神经网络没有任何的区别，常用的激活函数一般有sigmoid、tanh和relu。在这里使用tanh作为激活
-函数的原因是其值域为（-1，1）,而sigmoid为（0，1），tanh的公式如下：
+函数的原因是其值域为（-1，1）,而sigmoid为（0，1），tanh的公式如\ref{tanh}所示：
 \begin{align}
-  a = g(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}
+  a = g(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}} \label{tanh}
 \end{align}
 但是sigmoid和tanh作为激活函数都有一些共同的缺点，比如z在很大或者很小的时候，梯度基本为0。所以在优化梯度下降算法来更新神经网络的时候使用tanh性能比较差，
 但是在本课题中影响不大。因为z的分布一般位于中间值域。
@@ -541,7 +548,7 @@ $\widetilde{h_s}$，其计算公式如下：
 同样在处理好输入sentiment embedding的相关问题后，将其输入GRU网络中进行训练。和语义编码不太类似的地方在于，情感编码在decode阶段是需要分类的，有
 具体而准确的结果，所在本小节最后会根据此来设计损失函数。
 
-同样的，情感编码也是通过GRU网络，从post序列$x = (x_1,x_2,...,x_T)$中抽取情感相关信息，然后映射到隐藏层,计算式如下：
+同样的，情感编码也是通过GRU网络，从post序列$x = (x_1,x_2,...,x_T)$中抽取情感相关信息，然后映射到隐藏层,计算式如\ref{3.6}所示：
 \begin{align}
   h_e^t = GRU(h_e^{t-1},x_t) \label{3.6}
 \end{align}
@@ -556,13 +563,13 @@ $\widetilde{h_s}$，其计算公式如下：
 \end{figure}
 
 为了增强隐藏层对于情感信息的感知能力，如图\ref{Fig.attentionemotion}，同样使用注意力机制来聚焦于情感词句，并在最后生成情感编码向量$\widetilde{h_e}$,
-可知计算公式如下：
+可知计算公式如\ref{3.7}所示：
 \begin{align}
   \widetilde{h_e} = \sum_{i=1}^{T}a_i h_e^i \label{3.7}
 \end{align}
 
 整个网络为了使RNN网络其更注重于情感相关信息，设计了一个交叉熵损失函数。之所以这样做是因为，可以通过获取的$\widetilde{h_e}$来进行
-计算，通过一个线性层和sigmoid层来将其映射情感空间中，来得到最后编码出来情感解码出来的结果的损失有多大。如下公式：
+计算，通过一个线性层和sigmoid层来将其映射情感空间中，来得到最后编码出来情感解码出来的结果的损失有多大。如公式\ref{3.8}和\ref{3.9}所示：
 \begin{align}
   &\hat{e_p} = \sigma(W_e \widetilde{h_e} + b) \label{3.8}\\
   &\mathcal{L}_p = -e_p log(\hat{e_p}) \label{3.9}
@@ -573,7 +580,7 @@ $\widetilde{h_s}$，其计算公式如下：
 \subsubsection{融合预测网络}
 在经过情感编码和语义编码之后，需要将得到的两个向量进行融合并进行对response情感的预测，这也是本课题的重中之重。为了构建$e_r$的分类结果，
 这里使用融合预测网络来融合均衡两个不同编码向量对于情感的贡献。并在之后部署一个预测网络来选择response的最佳情感分类。如图\ref{Fig.fusionnetwork}
-所示，在将$\widetilde{h_s}$和$\widetilde{h_e}$输入一个sigmoid网络后可以获得一个权重大小，计算过程如下所示：
+所示，在将$\widetilde{h_s}$和$\widetilde{h_e}$输入一个sigmoid网络后可以获得一个权重大小。
 
 \begin{figure}[htbp] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
   \centering %图片居中
@@ -642,10 +649,10 @@ ECM在最初的Seq2seq模型中加入了emotion embedding，这是一种静态�
 \end{figure}
 
 如图\ref{Fig.imemory}所示，在内部记忆的解码模块中，内部情感状态变化和选词的关联不是显式的，所以并不能被直接的观察得到。在每个时间步的计算过程中，都会计算到Read Gate$g_t^t$
-和Write Gate$g_t^w$，如下述公式所示：
+和Write Gate$g_t^w$，如公式\ref{rw}所示。
 \begin{align}
   &g_t^r = \sigma(W_g^r[e(y_{t-1});s_{t-1};c_t])
-  &g_t^w = \sigma(W_g^w[e(s_t)])
+  &g_t^w = \sigma(W_g^w[e(s_t)]) \label{rw}
 \end{align}
 
 $g_t^r$和$g_t^w$都是用于对内部记忆模块来读写的，在每个时间步中，$g_t^w$都会被消除一部分，而在最后一个时间步中情感状态会衰减至0，此时情感被完全表达。
@@ -653,7 +660,7 @@ $g_t^r$和$g_t^w$都是用于对内部记忆模块来读写的，在每个时间
   &M_{r,t}^I = g_t^r \bigotimes M_{e,t}^I
   &M_{r,t+1}^I = g_t^w \bigotimes M_{e,t}^I
 \end{align}
-而隐藏层的状态也会根据内部情感状态来进行改变
+而隐藏层的状态也会根据内部情感状态来进行改变。
 \begin{align}
   s_t = GRU(s_{t-1},[c_t;e(y_{t-1};M_{e,t}^I)])
 \end{align}
@@ -681,7 +688,7 @@ ECM通过为分别分配不同的生成权重给富含情感的词汇和普通�
 
 以上描述的是在已知response的情感之后，生成对应回复的过程和方法，而现在需要设计response generator和emotion selector的衔接。
 在获得了Emotion Selector给出的最佳回复情感之后，为了生成回复的情感嵌入向量，需要将$\hat{e_r}$的维度放大到和隐藏层向量一样大。
-所以需要将$\hat{e_r}$乘上一个随机向量$W_e$。计算方法如下：
+所以需要将$\hat{e_r}$乘上一个随机向量$W_e$。计算方法如\ref{3.16}所示：
 \begin{align}
   V_e = W_e \hat{e_r} \label{3.16} 
 \end{align}
@@ -693,7 +700,7 @@ ECM通过为分别分配不同的生成权重给富含情感的词汇和普通�
 在本课题中整个数据集中包括大量无感情，单一情感和双重情感的post-response对。
 在此前的ECM中，使用的是基于内在和外在记忆的模式，通过编码输入序列到RNN网络中来得到隐藏层向量$h = (h_1,h_2,...,h_T)$，然后
 生成出一个上下文向量$c_t$用于decode这一步的隐藏层向量$s_t$。本课题将通过注意力机制重写这一过程，主要是优化了权重的分配这一步骤。
-此前的计算方式如下：
+此前的计算方式如\ref{3.17}、\ref{3.18}、\ref{3.19}所示：
 \begin{align}
   &u_i^t = v^T tanh(W_1h_i + W_2 s_t) \label{3.17}\\
   &a_i^t = softmax(u_i^t) \label{3.18}\\
@@ -701,7 +708,7 @@ ECM通过为分别分配不同的生成权重给富含情感的词汇和普通�
 \end{align}
 
 在每个时间t中，上下文向量$c_t$都会根据注意力机制重新编码，然后使得在长句子生成中拥有更好的性能。
-但是以上的公式显然是忽略了刚刚所说到的$V_e$情感向量。现在，将其纳入训练算法中并依此重写公式\ref{3.17},如下所示
+但是以上的公式显然是忽略了刚刚所说到的$V_e$情感向量。现在，将其纳入训练算法中并依此重写公式\ref{3.17},如\ref{3.20}所示：
 \begin{align}
   u_i^t = v^T tanh(W_1h_i + W_2 s_t + W_3V_e) \label{3.20}
 \end{align}
@@ -709,21 +716,21 @@ ECM通过为分别分配不同的生成权重给富含情感的词汇和普通�
 \begin{align}
   s^{'}_t = W_4[s_t;c_t] \label{3.21}
 \end{align}
-在获取到最新的隐藏层向量后，可以重构公式\ref{3.1}为：
+在获取到最新的隐藏层向量后，可以重构公式\ref{3.1}为\ref{3.22}：
 \begin{align}
   s_t = GRU(s^{'}_{t-1},[y_{t-1};V_e]) \label{3.22}
 \end{align}
 上述计算式表示解码器在每次更新状态时，都会将上一轮的输出、隐藏层向量以及情感向量作为输入，这样可以最大化保持语义连贯和情感的饱满。
 
 \subsection{损失函数}
-在本课题中损失函数主要由两个部分构成，一个是情感损失，一个是语义的损失。可以表示为：
+在本课题中损失函数主要由两个部分构成，一个是情感损失，一个是语义的损失。可以表示为\ref{3.23}所示：
 \begin{align}
   \mathcal{L}_{ECMP} (m) = a \mathcal{L}_e + (1-a)\mathcal{L}_{seq2seq} \label{3.23}
 \end{align}
 
 其中$a$是一个用来平衡情感损失和语义损失权重的因子，也是需要调参的一个地方。
 
-而$\mathcal{L}_e$则是代表情感损失，计算过程如\ref{3.24}：
+而$\mathcal{L}_e$则是代表情感损失，计算过程如公式\ref{3.24}：
 \begin{align}
   \mathcal{L}_e = \mathcal{L}_p + \mathcal{L}_r \label{3.24}
 \end{align}
@@ -761,7 +768,7 @@ ECMP设计中的制约因素主要需要通过系统可用性、未来可扩展�
 代码设计的实际实际约为4周，而代码实现的实际时间大约为4周，其余时间主要用在学习相关理论知识和对接课题组成员，本节采用
 Putnam模型\cite{王红珍2012软件开发成本估算模型的研究}来估算整个软件开发的成本。
 
-而Putnam提出的动态多变量模型，计算过程如下
+而Putnam提出的动态多变量模型，计算过程如下。
 \begin{align}
   L = Ck * K^{1/3} * td^{4/3} \notag
 \end{align}
@@ -808,7 +815,7 @@ Putnam模型\cite{王红珍2012软件开发成本估算模型的研究}来估算
 外部情感词语选择则在每一步生成词的过程中，选择情感丰富的词或者非情感相关普通词。这样生成出来的response在语义流畅度上有着更好的表现，且完全不需要再依赖于人来手动
 进行选择回复的最佳情感。
 
-\section{基于注意力机制（Attention）的情感对话生成系统实现}
+\section{基于注意力机制的情感对话生成系统实现}
 在本课题的实现过程中，主要采用python作为编码语言，因为python本质上是一种解释型语言，而且面向对象，最重要的是
 其生态链中有着大量实用的第三方库。现如今在深度学习方面，TensorFlow和PyTorch已经是最为流行的两个用于深度学习的库了。
 而在本课题中采用的则是TensorFlow来作为项目基础框架。
@@ -858,7 +865,7 @@ Putnam模型\cite{王红珍2012软件开发成本估算模型的研究}来估算
   \caption{数据集划分} %最终文档中希望显示的图片标题
   \label{Fig.data} %用于文内引用的标签
 \end{figure}
-数据集合划分和处理的伪代码如下：
+数据集合划分和处理的伪代码如算法\ref{alg:ppd}所示：
 \begin{algorithm}
   \caption{prepare data for train/test/dev}
   \label{alg:ppd}
@@ -887,7 +894,7 @@ Putnam模型\cite{王红珍2012软件开发成本估算模型的研究}来估算
 
 如果在预训练阶段已经给出了训练好的word embedding vector，那么直接读取相应的文件就可以了，并且按照逐个的单词来分别进行word embedding，需要注意的是在进行此操作时
 需要注意是通过语义还是情感来进行词嵌入，在tokenizer阶段，也包括了对数据的清洗，将一些非常短或没有实际意义的文本清洗去掉，因为这些内容会非常影响最后的训练效果，并且没有
-任何的实际含义，在海量的对话中也不乏大量的反人类语言。tokenizer算法结构如下：
+任何的实际含义，在海量的对话中也不乏大量的反人类语言。tokenizer结构如算法\ref{alg:tok}所示：
 \begin{algorithm}
   \caption{tokenizer算法}
   \label{alg:tok}
@@ -951,18 +958,17 @@ RNNCell搭建多维GRUCell结构即可。
   \end{algorithmic}
 \end{algorithm}
 
-在构建好多维GRU Cell之后，需要实现attention部分并且将其封装进语义/情感编码模块中，所以接下来只需要分别为情感编码和语义编码部分实现封装部分即可。封装过程可参考项目源码
-\cite{ECMP}
+在构建好多维GRU Cell之后，需要实现attention部分并且将其封装进语义/情感编码模块中，所以接下来只需要分别为情感编码和语义编码部分实现封装部分即可。
 \begin{itemize}
-  \item embedding encoder with attention(semantic)
-  \item embedding decoder with attention(semantic)
-  \item embedding encoder with attention(sentiment)
-  \item embedding decoder with attention(sentiment)
+  \item [1)]embedding encoder with attention(semantic)
+  \item [2)]embedding decoder with attention(semantic)
+  \item [3)]embedding encoder with attention(sentiment)
+  \item [4)]embedding decoder with attention(sentiment)
 \end{itemize}
 
 其中embedding attention seq2seq函数则是对encoder和decoder的封装，情感编码模块以及语义编码模块共用这一模块且输入输出流
 格式完全一致，在获取到输出的$\widetilde{h_s}$和$\widetilde{h_e}$之后，通过公式\ref{3.13}进行向量层面的权重融合，
-如\ref{alg:fusionprediction}所示。
+如算法\ref{alg:fusionprediction}所示。
 \begin{algorithm}
   \caption{Fusion Prediction}
   \label{alg:fusionprediction}
@@ -988,7 +994,7 @@ Response Generator则如设计部分中所说，沿用了ECM\cite{DBLP:journals/
 在选择最佳的回复情感之后，必不可少的是情感状态类别的嵌入，情绪状态会被当作一种语句中的附加信息被传入Emotion biased Attention层。
 根据情感类别$e$，在经过random initialize之后得到$\boldsymbol{V}_e$，之后会将这个随机向量传入RNN网络中进行训练。
 分别将词嵌入向量$\boldsymbol{e}(y_{t-1})$、情感类别嵌入向量$\boldsymbol{V}_e$以及context向量$\boldsymbol{c}_t$一起传入编码器用于更新
-它的隐藏层状态$\boldsymbol{s}_t$，如下所示:
+它的隐藏层状态$\boldsymbol{s}_t$。
 \begin{align}
   \boldsymbol { s } _ { \boldsymbol { t } } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \boldsymbol { s } _ { t - 1 } , \left[ \boldsymbol { c } _ { t } ; \boldsymbol { e } \left( y _ { t - 1 } \right) ; \boldsymbol { V } _ { e } \right] \right) \notag
 \end{align}
@@ -1006,7 +1012,7 @@ Write门状态$\boldsymbol{g}_t^w$依赖于解码器此时的状态$\boldsymbol{
 $$\boldsymbol { g } _ { t } ^ { w } = \operatorname { sigmoid } \left( \mathbf { W } _ { \mathbf { g } } ^ { \mathbf { w } } \boldsymbol { s } _ { t } \right)$$
 $$\boldsymbol { g } _ { t } ^ { r } = \operatorname { sigmoid } \left( \mathbf { W } _ { \mathbf { g } } ^ { \mathbf { r } } \left[ \boldsymbol { e } \left( y _ { t - 1 } \right) ; \boldsymbol { s } _ { t - 1 } ; \boldsymbol { c } _ { t } \right] \right)$$
 
-读写门可以利用TensorFlow中已经实现的RNNCell来重构GRUCell以便于其支持内部记忆。这里命名为MEMGRUCell，如下所示：
+读写门可以利用TensorFlow中已经实现的RNNCell来重构GRUCell以便于其支持内部记忆。这里命名为MEMGRUCell，如算法\ref{alg:mgc}所示：
 \begin{algorithm}
   \caption{MEM GRU Cell}
   \label{alg:mgc}
@@ -1027,7 +1033,7 @@ $$\boldsymbol { g } _ { t } ^ { r } = \operatorname { sigmoid } \left( \mathbf {
   \end{algorithmic}
 \end{algorithm}
 
-而和基于融合预测网络的情感预测模块相同的是，这里也用到了多维GRUCell来提高信息的捕获能力，如算法\ref{alg:mtgc}。
+而和基于融合预测网络的情感预测模块相同的是，这里也用到了多维GRUCell来提高信息的捕获能力，如算法\ref{alg:mtgc}所示。
 
 紧接着将写入和读取门分别作用域内部存储器中。在每个step中，情绪状态会衰退一定的值（通过$\boldsymbol{g}_t^w$）。
 
@@ -1068,7 +1074,7 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 需要注意的是这两个词汇表一定是没有交集的，最终所生成的分布$P(y_t)$则是两个分布概率向量的串联。
 
 \subsection{本章小结}
-本个章节从算法级别描述了整个系统的实现模式。也从侧面印证了ECMP模型对于ECM的主要提升在于情感选择器的实现。其中不论是情感选择还是回复生成，本质上来说都是序列到序列
+本个章节从算法级别描述了整个系统的实现模式。也从侧面印证了ECMP模型对于ECM\cite{DBLP:journals/corr/ZhouHZZL17}的主要提升在于情感选择器的实现。其中不论是情感选择还是回复生成，本质上来说都是序列到序列
 的生成，而算法实现的角度上来看也都是基于seq2seq框架来进行编码解码，本章的重点是混合预测网络的应用以及word embedding的加入，非常显著的加快了神经网络的训练速度并且
 优化了训练效果。并且相较于此前的所有情感对话生成模型来看，ECMP不再将依赖于人工手动选择回复的最佳情感，而是完全依赖于Emotion Selector的判断。在下一个章节，
 将会论证ECMP的语义流畅度和情感准确度，保证其在自动选择情感的前提下，不会损失过度的语义逻辑和主题相关性。
@@ -1077,10 +1083,10 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 \subsection{测试环境与方案}
 因为开发机平台为macOS，所以测试环境系统也选用了macOS平台，测试的硬件软件环境如下：
 \begin{itemize}
-  \item System Version：macOS Big Sur 11.2 Beta版
-  \item PyCharm Version：2019.3.3
-  \item TensorFlow Version：tensorflow-gpu==0.12
-  \item Python Version: 3.5
+  \item [1)]System Version：macOS Big Sur 11.2 Beta版
+  \item [2)]PyCharm Version：2019.3.3
+  \item [3)]TensorFlow Version：tensorflow-gpu==0.12
+  \item [4)]Python Version: 3.5
 \end{itemize}
 
 根据Liu\cite{liu-etal-2016-evaluate}等人的论文可知BLEU并不适用于评估对话生成等课题。
@@ -1091,14 +1097,14 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 
 然后从人工评估角度上来说，这里从数据集中随机抽取了200条post，然后输入以下四种对话生成系统中来进行评估
 \begin{itemize}
-  \item Seq2seq：传统的序列到序列模型，没有进行词嵌入
-  \item Seq2seq-emb：包含词嵌入的序列到序列模型
-  \item ECM：Emotion Chat Machine，不包括自动情感选择模块
-  \item ECMP：Emotion Chat Machine Pro，也就是本次课题模型
+  \item [1)]Seq2seq：传统的序列到序列模型，没有进行词嵌入
+  \item [2)]Seq2seq-emb：包含词嵌入的序列到序列模型
+  \item [3)]ECM：Emotion Chat Machine，不包括自动情感选择模块
+  \item [4)]ECMP：Emotion Chat Machine Pro，也就是本次课题模型
 \end{itemize}
 从以上四个模型得出的response集合，会被分配给4位非本课题研究领域的同学来进行人工打分，从语义和情感准确度两个角度来为其
 进行打分，而从情感准确度的角度上来说，如果response所生成的情感非常不准确，例如出现了即开心又难过的情感对，则会被标记为0分，
-此外将会被标记为1分。而综合来说，一句话的质量由情感准确度和语义流畅度所组成，如下公式：
+此外将会被标记为1分。而综合来说，一句话的质量由情感准确度和语义流畅度所组成，如公式\ref{5.1}所示：
 \begin{align}
   \mathcal{Q}_{response} = S_{sentiment} \cup S_{semantics} \label{5.1}
 \end{align}
@@ -1146,13 +1152,6 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 
 \subsection{人工评估}
 
-\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
-  \centering %图片居中
-  \includegraphics[width=1\textwidth]{images/4models.png} %插入图片，[]中设置图片大小，{}中是图片文件名
-  \caption{四类模型对比图} %最终文档中希望显示的图片标题
-  \label{Fig.4models} %用于文内引用的标签
-\end{figure}
-
 \begin{generaltab}{人工评估结果}{tbl:her}
   \begin{tabular}{c|ccc}
     \toprule
@@ -1171,7 +1170,12 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 
 而ECM模型则取得了相对来说不错的成绩，但是因为ECM无法自动选择最佳情感，所以在这里只能默认ECM的$response$采用和$post$一致的情感，这显然是非常有局限性的，因为没有人希望在愤怒或者伤心
 的表达时，听到对方同样的回复同样也是愤怒伤感的。而ECMP则分别从语义丰富度和情感准确度两个角度分别对模型进行了优化，使得ECMP所生成的语句有了较好的效果。
-
+\begin{figure}[H] %H为当前位置，!htb为忽略美学标准，htbp为浮动图形
+  \centering %图片居中
+  \includegraphics[width=1\textwidth]{images/4models.png} %插入图片，[]中设置图片大小，{}中是图片文件名
+  \caption{四类模型对比图} %最终文档中希望显示的图片标题
+  \label{Fig.4models} %用于文内引用的标签
+\end{figure}
 而图\ref{Fig.4models}则是一种对于现有四种模型分别在同一个$post$下所生成的$response$的示例。
 
 \subsection{系统界面}
@@ -1179,7 +1183,7 @@ $$\boldsymbol { s } _ { t } = \mathbf { G } \mathbf { R } \mathbf { U } \left( \
 所以本项目采用了Vue.js来作为前端，而Django作为后端来进行交互系统的设计，其中蚂蚁金服团队提供了一套非常完善的前端套件Ant Design of Vue来让开发者快速开发自己的展示平台，
 所以本项目也是通过这个平台来进行可视化交互界面的设计。虽然Django也有其前端界面，但是其开发效率太低，所以不予使用。
 
-ECMP平台的前端设计模块中包括用户登陆、结果分析和对话互动三个主要模块。具体的设计和实现可以参考项目源码\cite{ECMP}，在这里不做赘述。
+ECMP平台的前端设计模块中包括用户登陆、结果分析和对话互动三个主要模块。
 \subsubsection{用户登陆页面}
 用户登陆界面主要使用了异步校验法，因为没有引入数据库结构所以账号密码直接写死在代码数据结构中。而后端在接收到前端传来的account和password字段之后，会和正确的字段进行校验，
 如果成功，则分配相应的用户权限并跳转至对话页面，如果失败则直接通过悬浮气泡进行提示。
@@ -1191,10 +1195,10 @@ ECMP平台的前端设计模块中包括用户登陆、结果分析和对话互�
 \end{figure}
 设计过程中后端主要采用了以下四个API接口：
 \begin{itemize}
-  \item auth-login
-  \item get-user-info
-  \item return-2-step-code
-  \item auth-logout
+  \item [1)]auth-login
+  \item [2)]get-user-info
+  \item [3)]return-2-step-code
+  \item [4)]auth-logout
 \end{itemize}
 
 分别用于校验用户账号密码、返回用户权限信息、返回登陆状态码以及退出登陆。

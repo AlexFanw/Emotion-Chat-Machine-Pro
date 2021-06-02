@@ -1,185 +1,225 @@
-\begin{thebibliography}{10}
-\providecommand{\bibauthor}[1]{#1}
-\providecommand{\bibeditor}[1]{#1}
-\providecommand{\bibtranslator}[1]{#1}
-\providecommand{\bibtitle}[1]{#1}
-\providecommand{\bibbooktitle}[1]{#1}
-\providecommand{\bibjournal}[1]{#1}
-\providecommand{\bibmark}[1]{#1}
-\providecommand{\bibcountry}[1]{#1}
-\providecommand{\bibpatentid}[1]{#1}
-\providecommand{\bibedition}[1]{#1}
-\providecommand{\biborganization}[1]{#1}
-\providecommand{\bibaddress}[1]{#1}
-\providecommand{\bibpublisher}[1]{#1}
-\providecommand{\bibinstitution}[1]{#1}
-\providecommand{\bibschool}[1]{#1}
-\providecommand{\bibvolume}[1]{#1}
-\providecommand{\bibnumber}[1]{#1}
-\providecommand{\bibversion}[1]{#1}
-\providecommand{\bibpages}[1]{#1}
-\providecommand{\bibmodifydate}[1]{#1}
-\providecommand{\bibcitedate}[1]{#1}
-\providecommand{\bibyear}[1]{#1}
-\providecommand{\bibdate}[1]{#1}
-\providecommand{\biburl}[1]{\newline\url{#1}}
+\begin{thebibliography}{32}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
 
-\bibitem{DBLP:journals/corr/ZhouHZZL17}
-\bibauthor{ZHOU H\@, HUANG M\@, ZHANG T, et~al}\@. \bibtitle{Emotional Chatting
-  Machine: Emotional Conversation Generation with Internal and External
-  Memory}\bibmark{[J/OL]}\@. \bibjournal{CoRR}\@, \bibyear{2017}\@,
-  \bibvolume{abs/1704.01074}\@.
-  \newline\url{http://arxiv.org/abs/1704.01074}\@.
+\bibitem[Zhou et~al.(2018)Zhou, Huang, Zhang, Zhu, and
+  Liu]{DBLP:journals/corr/ZhouHZZL17}
+Zhou~H, Huang~M, Zhang~T, et~al.
+\newblock Emotional chatting machine: Emotional conversation generation with
+  internal and external memory\allowbreak[C]//\allowbreak
+Proceedings of the AAAI Conference on Artificial Intelligence: volume~32.
+\newblock 2018.
 
-\bibitem{bahdanau2014neural}
-\bibauthor{BAHDANAU D\@, CHO K\@, BENGIO Y}\@. \bibtitle{Neural machine
-  translation by jointly learning to align and translate}\bibmark{[J]}\@.
-  \bibjournal{arXiv preprint arXiv:1409.0473}\@, \bibyear{2014}\@.
+\bibitem[庄寅\ 等(2021)庄寅, 刘箴, 刘婷婷, 王媛怡, 刘翠娟, and
+  柴艳杰]{庄寅2021文本情感对话系统研究综述}
+庄寅, 刘箴, 刘婷婷, 等.
+\newblock 文本情感对话系统研究综述\allowbreak[J].
+\newblock 计算机科学与探索, 2021, 15\allowbreak (5): 825-837.
 
-\bibitem{luong2015effective}
-\bibauthor{LUONG M-T\@, PHAM H\@, MANNING C~D}\@. \bibtitle{Effective
-  approaches to attention-based neural machine translation}\bibmark{[J]}\@.
-  \bibjournal{arXiv preprint arXiv:1508.04025}\@, \bibyear{2015}\@.
+\bibitem[Bahdanau et~al.(2014)Bahdanau, Cho, and Bengio]{bahdanau2014neural}
+Bahdanau~D, Cho~K, Bengio~Y.
+\newblock Neural machine translation by jointly learning to align and
+  translate\allowbreak[J].
+\newblock arXiv preprint arXiv:1409.0473, 2014.
 
-\bibitem{jean2014using}
-\bibauthor{JEAN S\@, CHO K\@, MEMISEVIC R, et~al}\@. \bibtitle{On using very
-  large target vocabulary for neural machine translation}\bibmark{[J]}\@.
-  \bibjournal{arXiv preprint arXiv:1412.2007}\@, \bibyear{2014}\@.
+\bibitem[Luong et~al.(2015)Luong, Pham, and Manning]{luong2015effective}
+Luong~M~T, Pham~H, Manning~C~D.
+\newblock Effective approaches to attention-based neural machine
+  translation\allowbreak[J].
+\newblock arXiv preprint arXiv:1508.04025, 2015.
 
-\bibitem{彭叶红2019基于主题模型与变分自编码的情感对话生成技术研究}
-\bibauthor{彭叶红}\@.
-  \bibtitle{基于主题模型与变分自编码的情感对话生成技术研究}\bibmark{[D]}\@.
-  \bibaddress{[S.l.]}\thinspace{}\textnormal{:
-  }\bibschool{华中师范大学}\@, \bibyear{2019}\@.
+\bibitem[Jean et~al.(2014)Jean, Cho, Memisevic, and Bengio]{jean2014using}
+Jean~S, Cho~K, Memisevic~R, et~al.
+\newblock On using very large target vocabulary for neural machine
+  translation\allowbreak[J].
+\newblock arXiv preprint arXiv:1412.2007, 2014.
 
-\bibitem{对话风格迁移}
-\bibauthor{刘喜凯}\@.
-  \bibtitle{基于对话风格迁移的神经网络对话模型研究}\bibmark{[D]}\@.
-  \bibaddress{[S.l.]}\thinspace{}\textnormal{:
-  }\bibschool{大连理工大学}\@, \bibyear{2020}\@.
+\bibitem[彭叶红(2019)]{彭叶红2019基于主题模型与变分自编码的情感对话生成技术研究}
+彭叶红.
+\newblock
+  基于主题模型与变分自编码的情感对话生成技术研究\allowbreak[D].
+\newblock 华中师范大学, 2019.
 
-\bibitem{ghosh2017affect}
-\bibauthor{GHOSH S\@, CHOLLET M\@, LAKSANA E, et~al}\@. \bibtitle{Affect-lm: A
-  neural language model for customizable affective text
-  generation}\bibmark{[J]}\@. \bibjournal{arXiv preprint arXiv:1704.06851}\@,
-  \bibyear{2017}\@.
+\bibitem[刘喜凯(2020)]{对话风格迁移}
+刘喜凯.
+\newblock
+  基于对话风格迁移的神经网络对话模型研究\allowbreak[D].
+\newblock 大连理工大学, 2020.
 
-\bibitem{刘宁2019人机交互的情感拟人化策略研究}
-\bibauthor{刘宁}\@.
-  \bibtitle{人机交互的情感拟人化策略研究}\bibmark{[D]}\@.
-  \bibaddress{[S.l.]}\thinspace{}\textnormal{:
-  }\bibschool{重庆邮电大学}\@, \bibyear{2019}\@.
+\bibitem[Ghosh et~al.(2017)Ghosh, Chollet, Laksana, Morency, and
+  Scherer]{ghosh2017affect}
+Ghosh~S, Chollet~M, Laksana~E, et~al.
+\newblock Affect-lm: A neural language model for customizable affective text
+  generation\allowbreak[J].
+\newblock arXiv preprint arXiv:1704.06851, 2017.
 
-\bibitem{wei2019emotion}
-\bibauthor{WEI W\@, LIU J\@, MAO X, et~al}\@. \bibtitle{Emotion-aware chat
-  machine: Automatic emotional response generation for human-like emotional
-  interaction}\bibmark{[C]} //\thinspace{}\bibbooktitle{Proceedings of the 28th
-  ACM International Conference on Information and Knowledge Management}\@.
-  \bibyear{2019}\thinspace{}\textnormal{:
-  }\bibpages{1401\thinspace{}\textnormal{--}\thinspace{}1410}\@.
+\bibitem[刘宁(2019)]{刘宁2019人机交互的情感拟人化策略研究}
+刘宁.
+\newblock 人机交互的情感拟人化策略研究\allowbreak[D].
+\newblock 重庆邮电大学, 2019.
 
-\bibitem{bao2019cyclegan}
-\bibauthor{BAO F\@, NEUMANN M\@, VU N~T}\@. \bibtitle{CycleGAN-Based Emotion
-  Style Transfer as Data Augmentation for Speech Emotion
-  Recognition.}\bibmark{[C]} //\thinspace{}\bibbooktitle{INTERSPEECH}\@.
-  \bibyear{2019}\thinspace{}\textnormal{:
-  }\bibpages{2828\thinspace{}\textnormal{--}\thinspace{}2832}\@.
+\bibitem[刘磊(2019)]{刘磊2019基于}
+刘磊.
+\newblock 基于 PAD 情感状态模型的对话生成研究\allowbreak[D].
+\newblock 华中师范大学, 2019.
 
-\bibitem{li2016persona}
-\bibauthor{LI J\@, GALLEY M\@, BROCKETT C, et~al}\@. \bibtitle{A persona-based
-  neural conversation model}\bibmark{[J]}\@. \bibjournal{arXiv preprint
-  arXiv:1603.06155}\@, \bibyear{2016}\@.
+\bibitem[Oh et~al.(2017)Oh, Lee, Ko, and Choi]{oh2017chatbot}
+Oh~K~J, Lee~D, Ko~B, et~al.
+\newblock A chatbot for psychiatric counseling in mental healthcare service
+  based on emotional dialogue analysis and sentence
+  generation\allowbreak[C]//\allowbreak
+2017 18th IEEE international conference on mobile data management (MDM).
+\newblock IEEE, 2017: 371-375.
 
-\bibitem{guthrie2006closer}
-\bibauthor{GUTHRIE D\@, ALLISON B\@, LIU W, et~al}\@. \bibtitle{A closer look
-  at skip-gram modelling.}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{LREC\thinspace{}\textnormal{: }Vol~6}\@.
-  \bibyear{2006}\thinspace{}\textnormal{:
-  }\bibpages{1222\thinspace{}\textnormal{--}\thinspace{}1225}\@.
+\bibitem[杨丰瑞\ 等(2020)杨丰瑞, 霍娜, 张许红, and
+  韦巍]{杨丰瑞2020基于注意力机制的主题扩展情感对话生成}
+杨丰瑞, 霍娜, 张许红, 等.
+\newblock 基于注意力机制的主题扩展情感对话生成\allowbreak[J].
+\newblock 计算机应用, 2020: 0-0.
 
-\bibitem{wordvector}
-\bibauthor{EMBEDDING}\@. \bibtitle{Chinese-Word-Vectors}\bibmark{[EB/OL]}\@.
-  \@. \newline\url{https://github.com/Embedding/Chinese-Word-Vectors}\@.
+\bibitem[Wei et~al.(2019)Wei, Liu, Mao, Guo, Zhu, Zhou, and Hu]{wei2019emotion}
+Wei~W, Liu~J, Mao~X, et~al.
+\newblock Emotion-aware chat machine: Automatic emotional response generation
+  for human-like emotional interaction\allowbreak[C]//\allowbreak
+Proceedings of the 28th ACM International Conference on Information and
+  Knowledge Management.
+\newblock 2019: 1401-1410.
 
-\bibitem{mikolov2010recurrent}
-\bibauthor{MIKOLOV T\@, KARAFI{\'A}T M\@, BURGET L, et~al}\@.
-  \bibtitle{Recurrent neural network based language model}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{Eleventh annual conference of the international
-  speech communication association}\@. \bibyear{2010}\@.
+\bibitem[Bao et~al.(2019)Bao, Neumann, and Vu]{bao2019cyclegan}
+Bao~F, Neumann~M, Vu~N~T.
+\newblock Cyclegan-based emotion style transfer as data augmentation for speech
+  emotion recognition.\allowbreak[C]//\allowbreak
+INTERSPEECH.
+\newblock 2019: 2828-2832.
 
-\bibitem{cho2014learning}
-\bibauthor{CHO K\@, VAN~MERRI{\"E}NBOER B\@, GULCEHRE C, et~al}\@.
-  \bibtitle{Learning phrase representations using RNN encoder-decoder for
-  statistical machine translation}\bibmark{[J]}\@. \bibjournal{arXiv preprint
-  arXiv:1406.1078}\@, \bibyear{2014}\@.
+\bibitem[Li et~al.(2016)Li, Galley, Brockett, Spithourakis, Gao, and
+  Dolan]{li2016persona}
+Li~J, Galley~M, Brockett~C, et~al.
+\newblock A persona-based neural conversation model\allowbreak[J].
+\newblock arXiv preprint arXiv:1603.06155, 2016.
 
-\bibitem{mikolov2013efficient}
-\bibauthor{MIKOLOV T\@, CHEN K\@, CORRADO G, et~al}\@. \bibtitle{Efficient
-  Estimation of Word Representations in Vector Space}\bibmark{[J]}\@,
-  \bibyear{2013}\@.
+\bibitem[Guthrie et~al.(2006)Guthrie, Allison, Liu, Guthrie, and
+  Wilks]{guthrie2006closer}
+Guthrie~D, Allison~B, Liu~W, et~al.
+\newblock A closer look at skip-gram modelling.\allowbreak[C]//\allowbreak
+LREC: volume~6.
+\newblock Citeseer, 2006: 1222-1225.
 
-\bibitem{gers1999learning}
-\bibauthor{GERS F~A\@, SCHMIDHUBER J\@, CUMMINS F}\@. \bibtitle{Learning to
-  forget: Continual prediction with LSTM}\bibmark{[J]}\@, \bibyear{1999}\@.
+\bibitem[Yin et~al.(2016)Yin, Wang, Li, Li, and Wang]{wordvector}
+Yin~R, Wang~Q, Li~P, et~al.
+\newblock Multi-granularity chinese word embedding\allowbreak[C]//\allowbreak
+Proceedings of the 2016 conference on empirical methods in natural language
+  processing.
+\newblock 2016: 981-986.
 
-\bibitem{dey2017gate}
-\bibauthor{DEY R\@, SALEM F~M}\@. \bibtitle{Gate-variants of gated recurrent
-  unit (GRU) neural networks}\bibmark{[C]} //\thinspace{}\bibbooktitle{2017
-  IEEE 60th international midwest symposium on circuits and systems
-  (MWSCAS)}\@. \bibyear{2017}\thinspace{}\textnormal{:
-  }\bibpages{1597\thinspace{}\textnormal{--}\thinspace{}1600}\@.
+\bibitem[Mikolov et~al.(2010)Mikolov, Karafi{\'a}t, Burget, {\v{C}}ernock{\`y},
+  and Khudanpur]{mikolov2010recurrent}
+Mikolov~T, Karafi{\'a}t~M, Burget~L, et~al.
+\newblock Recurrent neural network based language
+  model\allowbreak[C]//\allowbreak
+Eleventh annual conference of the international speech communication
+  association.
+\newblock 2010.
 
-\bibitem{tang-etal-2014-learning}
-\bibauthor{TANG D\@, WEI F\@, YANG N, et~al}\@. \bibtitle{Learning
-  Sentiment-Specific Word Embedding for {T}witter Sentiment
-  Classification}\bibmark{[C/OL]} //\thinspace{}\bibbooktitle{Proceedings of
-  the 52nd Annual Meeting of the Association for Computational Linguistics
-  (Volume 1: Long Papers)}\@. \bibaddress{Baltimore,
-  Maryland}\thinspace{}\textnormal{: }\bibpublisher{Association for
-  Computational Linguistics}\@, \bibyear{2014}\thinspace{}\textnormal{:
-  }\bibpages{1555\thinspace{}\textnormal{--}\thinspace{}1565}\@.
-  \newline\url{https://www.aclweb.org/anthology/P14-1146}\@.
+\bibitem[Cho et~al.(2014)Cho, Van~Merri{\"e}nboer, Gulcehre, Bahdanau,
+  Bougares, Schwenk, and Bengio]{cho2014learning}
+Cho~K, Van~Merri{\"e}nboer~B, Gulcehre~C, et~al.
+\newblock Learning phrase representations using rnn encoder-decoder for
+  statistical machine translation\allowbreak[J].
+\newblock arXiv preprint arXiv:1406.1078, 2014.
 
-\bibitem{plutchik1980general}
-\bibauthor{PLUTCHIK R}\@. \bibtitle{A general psychoevolutionary theory of
-  emotion}\bibmark{[G]} //\thinspace{}\bibbooktitle{Theories of emotion}\@.
-  \bibaddress{[S.l.]}\thinspace{}\textnormal{: }\bibpublisher{Elsevier}\@,
-  \bibyear{1980}\thinspace{}\textnormal{:
-  }\bibpages{3\thinspace{}\textnormal{--}\thinspace{}33}\@.
+\bibitem[Mikolov et~al.(2013)Mikolov, Chen, Corrado, and
+  Dean]{mikolov2013efficient}
+Mikolov~T, Chen~K, Corrado~G, et~al.
+\newblock Efficient estimation of word representations in vector
+  space\allowbreak[J].
+\newblock arXiv preprint arXiv:1301.3781, 2013.
 
-\bibitem{王红珍2012软件开发成本估算模型的研究}
-\bibauthor{王红珍\@, 李竹林\@, OTHERS}\@.
-  \bibtitle{软件开发成本估算模型的研究}\bibmark{[J]}\@.
-  \bibjournal{计算机与数字工程}\@, \bibyear{2012}\bibnumber{(2012 年
-  03)}\thinspace{}\textnormal{:
-  }\bibpages{4\thinspace{}\textnormal{--}\thinspace{}6+}\@.
+\bibitem[Gers et~al.(2000)Gers, Schmidhuber, and Cummins]{gers1999learning}
+Gers~F~A, Schmidhuber~J, Cummins~F.
+\newblock Learning to forget: Continual prediction with lstm\allowbreak[J].
+\newblock Neural computation, 2000, 12\allowbreak (10): 2451-2471.
 
-\bibitem{ECMP}
-\bibauthor{ALEXFAN}\@. \bibtitle{Emotion-Chat-Machine-Pro}\bibmark{[EB/OL]}\@.
-  \@. \newline\url{https://github.com/AlexFanw/Emotion-Chat-Machine-Pro}\@.
+\bibitem[Dey et~al.(2017)Dey and Salem]{dey2017gate}
+Dey~R, Salem~F~M.
+\newblock Gate-variants of gated recurrent unit (gru) neural
+  networks\allowbreak[C]//\allowbreak
+2017 IEEE 60th international midwest symposium on circuits and systems
+  (MWSCAS).
+\newblock IEEE, 2017: 1597-1600.
 
-\bibitem{miller1956human}
-\bibauthor{MILLER G}\@. \bibtitle{Human memory and the storage of
-  information}\bibmark{[J]}\@. \bibjournal{IRE Transactions on Information
-  Theory}\@, \bibyear{1956}\@,
-  \bibvolume{2}\bibnumber{(3)}\thinspace{}\textnormal{:
-  }\bibpages{129\thinspace{}\textnormal{--}\thinspace{}137}\@.
+\bibitem[Tang et~al.(2014)Tang, Wei, Yang, Zhou, Liu, and
+  Qin]{tang-etal-2014-learning}
+Tang~D, Wei~F, Yang~N, et~al.
+\newblock Learning sentiment-specific word embedding for twitter sentiment
+  classification\allowbreak[C]//\allowbreak
+Proceedings of the 52nd Annual Meeting of the Association for Computational
+  Linguistics (Volume 1: Long Papers).
+\newblock 2014: 1555-1565.
 
-\bibitem{liu-etal-2016-evaluate}
-\bibauthor{LIU C-W\@, LOWE R\@, SERBAN I, et~al}\@. \bibtitle{How {NOT} To
-  Evaluate Your Dialogue System: An Empirical Study of Unsupervised Evaluation
-  Metrics for Dialogue Response Generation}\bibmark{[C/OL]}
-  //\thinspace{}\bibbooktitle{Proceedings of the 2016 Conference on Empirical
-  Methods in Natural Language Processing}\@. \bibaddress{Austin,
-  Texas}\thinspace{}\textnormal{: }\bibpublisher{Association for Computational
-  Linguistics}\@, \bibyear{2016}\thinspace{}\textnormal{:
-  }\bibpages{2122\thinspace{}\textnormal{--}\thinspace{}2132}\@.
-  \newline\url{https://www.aclweb.org/anthology/D16-1230}\@.
+\bibitem[Plutchik(1980)]{plutchik1980general}
+Plutchik~R.
+\newblock A general psychoevolutionary theory of
+  emotion\allowbreak[M]//\allowbreak
+Theories of emotion.
+\newblock Elsevier, 1980: 3-33.
 
-\bibitem{li2015diversity}
-\bibauthor{LI J\@, GALLEY M\@, BROCKETT C, et~al}\@. \bibtitle{A
-  diversity-promoting objective function for neural conversation
-  models}\bibmark{[J]}\@. \bibjournal{arXiv preprint arXiv:1510.03055}\@,
-  \bibyear{2015}\@.
+\bibitem[王红珍\ 等(2012)王红珍, 李竹林,
+  et~al.]{王红珍2012软件开发成本估算模型的研究}
+王红珍, 李竹林, 等.
+\newblock 软件开发成本估算模型的研究\allowbreak[J].
+\newblock 计算机与数字工程, 2012\allowbreak (2012 年 03): 4-6+.
+
+\bibitem[Miller(1956)]{miller1956human}
+Miller~G.
+\newblock Human memory and the storage of information\allowbreak[J].
+\newblock IRE Transactions on Information Theory, 1956, 2\allowbreak (3):
+  129-137.
+
+\bibitem[Liu et~al.(2016)Liu, Lowe, Serban, Noseworthy, Charlin, and
+  Pineau]{liu-etal-2016-evaluate}
+Liu~C~W, Lowe~R, Serban~I~V, et~al.
+\newblock How not to evaluate your dialogue system: An empirical study of
+  unsupervised evaluation metrics for dialogue response
+  generation\allowbreak[J].
+\newblock arXiv preprint arXiv:1603.08023, 2016.
+
+\bibitem[Li et~al.(2015)Li, Galley, Brockett, Gao, and Dolan]{li2015diversity}
+Li~J, Galley~M, Brockett~C, et~al.
+\newblock A diversity-promoting objective function for neural conversation
+  models\allowbreak[J].
+\newblock arXiv preprint arXiv:1510.03055, 2015.
+
+\bibitem[陈鑫淼(2019)]{陈鑫淼2019基于生成对抗网络的情感对话研究}
+陈鑫淼.
+\newblock 基于生成对抗网络的情感对话研究\allowbreak[D].
+\newblock 合肥工业大学, 2019.
+
+\bibitem[曹东岩(2017)]{曹东岩2017基于强化学习的开放领域聊天机器人对话生成算法}
+曹东岩.
+\newblock
+  基于强化学习的开放领域聊天机器人对话生成算法\allowbreak[D].
+\newblock 哈尔滨工业大学, 2017.
+
+\bibitem[栗梦媛(2018)]{栗梦媛2018基于情感交互的服务机器人对话系统研究与设计}
+栗梦媛.
+\newblock
+  基于情感交互的服务机器人对话系统研究与设计\allowbreak[D].
+\newblock 山东大学, 2018.
+
+\bibitem[崔宪坤(2018)]{崔宪坤2018基于循环神经网络和增强学习的对话情感模型研究}
+崔宪坤.
+\newblock
+  基于循环神经网络和增强学习的对话情感模型研究\allowbreak[D].
+\newblock 北京工业大学, 2018.
 
 \end{thebibliography}

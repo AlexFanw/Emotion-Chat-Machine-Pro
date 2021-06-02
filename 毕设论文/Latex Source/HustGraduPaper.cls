@@ -86,7 +86,7 @@
 \def\HGP@citestyle{normal}
 \DeclareOption{normalcite}{\def\HGP@citestyle{normal}}%使用正文式引用样式
 \DeclareOption{supercite}{\def\HGP@citestyle{super}}%使用上标型引用样式
-\def\HGP@citebst{gbt7714-2005}
+\def\HGP@citebst{gbt7714-2015}
 \DeclareOption{gbtcite}{\def\HGP@citebst{gbt7714-2005}}%使用GBT7714-2005样式
 \DeclareOption{gbt15cite}{\def\HGP@citebst{gbt7714-2015}}%使用GBT7714-2015样式
 \DeclareOption{tsinghuacite}{\def\HGP@citebst{thuthesis}}%使用清华样式
